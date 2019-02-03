@@ -32,7 +32,16 @@ router.use(function timeLog(req, res, next) {
 	   
         var	jsonObject_ = {
          
-		    UserName:request.body.UserName,
+		    StaffNo:request.body.StaffNo,
+			FirstName:request.body.FirstName,
+			MiddleName:request.body.MiddleName,
+			Surname:request.body.Surname,
+			Gender:request.body.Gender,
+			DOB:request.body.DOB,
+			NationalId:request.body.NationalId,
+			Email:request.body.Email,
+			PhysicalAddress:request.body.PhysicalAddress,
+			EmploymentDate:date,
 			Password:request.body.Password
 			
 		 

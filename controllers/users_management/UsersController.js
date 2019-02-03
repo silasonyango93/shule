@@ -39,9 +39,9 @@ module.exports = class UsersController{
 	  return new Promise(function(resolve, reject) { 
 		 
 		 //var userAlreadyRegisteredResult;
-		 var TableName="users";
-		 var ColumnName="UserName";
-		 var value_=jsonObject_.UserName;
+		 var TableName="staff_members";
+		 var ColumnName="StaffNo";
+		 var value_=jsonObject_.StaffNo;
 		 
 		 var myModelMasterPromise = ModelMaster.selectSpecific(TableName,ColumnName,value_);
 		  

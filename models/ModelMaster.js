@@ -308,7 +308,10 @@ batch_program() is a special function that handles batch jobs.
 	
    
 	
+
 	
+	
+/*This function implements a select query based on the session Id/User making this request*/	
 	static selectUserSpecific(tableName,ColumnName,value_,UserIdColumnName,user_id_value) {
 
      return new Promise(function(resolve, reject) {
@@ -327,7 +330,13 @@ batch_program() is a special function that handles batch jobs.
 
     }
 	
+
 	
+	
+	
+	
+	
+/*This function gets the number of records in a table.*/	
 	
 	static get_number_of_records(tableName,ColumnName,value_) {
 
