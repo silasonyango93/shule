@@ -1,0 +1,8 @@
+{
+  "name": "bash",
+  "description": "A ticket-selling platform api",
+  "repository": "https://github.com/SoftmedTanzania/mcare.git",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
