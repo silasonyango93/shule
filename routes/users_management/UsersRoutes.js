@@ -85,7 +85,7 @@ router.use(function timeLog(req, res, next) {
         var	jsonObject_ = {
          
 		    
-			AttemptedUserName:request.body.AttemptedUserName,
+			AttemptedStaffNo:request.body.AttemptedStaffNo,
 			AttemptedPassword:request.body.AttemptedPassword
 		 
 		

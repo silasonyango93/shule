@@ -1,6 +1,6 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
 
-This class is the "users" table's model
+This class is the "staff_members" table's model
 class.It receives any CRUD operation 
 requests and hands the over to class 
 ModelMaster.It creates an instance of class
@@ -12,7 +12,7 @@ functions.
 
 
 const ModelMaster=require('../ModelMaster.js');
-const TableName="users";
+const TableName="staff_members";
 
 
 module.exports = class UsersModel{

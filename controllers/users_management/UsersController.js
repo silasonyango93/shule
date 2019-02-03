@@ -74,7 +74,7 @@ module.exports = class UsersController{
            reject(err);
            })
 			  
-		  }else{var myResponse="A user already exists with this user name";
+		  }else{var myResponse="A user already exists by this staff number";
 			    resolve(myResponse);
 			   }
 			  
@@ -93,9 +93,9 @@ module.exports = class UsersController{
 		   
 		   
 	     
-		 var TableName="users";
-		 var SearchColumn="UserName";
-		 var SearchValue="silas";
+		 var TableName="staff_members";
+		 var SearchColumn="StaffNo";
+		 var SearchValue=jsonObject_.AttemptedStaffNo;
 		   
 		   
 	    
@@ -109,7 +109,7 @@ module.exports = class UsersController{
 			
 			if(userExistsResult.length === 0){
 			  
-			  var error_msg="There is no user account by this user name";
+			  var error_msg="There is no staff member by this staff number";
 			  var response_object = {error: true, error_msg:error_msg};
 			  resolve(response_object);
 			
@@ -124,7 +124,7 @@ module.exports = class UsersController{
 				  {
 					  
 					  var response_object = {
-                                    error: false, UserId: userExistsResult[0].UserId,UserName: userExistsResult[0].UserName
+                                    error: false, StaffNo: userExistsResult[0].StaffNo,FirstName: userExistsResult[0].FirstName
                                     };
 					  
 				   
