@@ -140,8 +140,32 @@ app.use(require('./routes/team_management/StaffTeamLeadRolesRoutes.js'));
 app.use(require('./routes/team_management/StaffTeamMemberRolesRoutes.js'));
 app.use(require('./routes/team_management/StudentTeamLeadRolesRoutes.js'));
 app.use(require('./routes/team_management/StudentTeamMemberRolesRoutes.js'));
+app.use(require('./routes/team_management/TeamDutyRosterRoutes.js'));
+app.use(require('./routes/team_management/TeamDutyRosterInformationTypesRoutes.js'));
+app.use(require('./routes/team_management/TeamDutyRosterInformationRoutes.js'));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End Team Management*/
+
+
+
+
+
+
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start DutyRoster Management*/
+
+app.use(require('./routes/duty_rosters/TeachersDutyRosterRoutes.js'));
+app.use(require('./routes/duty_rosters/TeacherOnDutyInformationTypesRoutes.js'));
+app.use(require('./routes/duty_rosters/TeacherOnDutyInformationRoutes.js'));
+app.use(require('./routes/duty_rosters/TeacherOnDutyGeneralRecordTypesRoutes.js'));
+app.use(require('./routes/duty_rosters/TeacherOnDutyGeneralRecordsRoutes.js'));
+app.use(require('./routes/duty_rosters/TeacherOnDutyStudentRecordsRoutes.js'));
+app.use(require('./routes/duty_rosters/TeacherOnDutyStaffRecordsRoutes.js'));
+app.use(require('./routes/duty_rosters/PrefectsDutyRosterRoutes.js'));
+app.use(require('./routes/duty_rosters/PrefectsOnDutyInformationTypesRoutes.js'));
+app.use(require('./routes/duty_rosters/PrefectsOnDutyInformationRoutes.js'));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End DutyRoster Management*/
 
 
 
