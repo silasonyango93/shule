@@ -190,12 +190,12 @@ delete() deletes a specific record(s).
 
 */	
 	
-	static delete(tableName,ColumnName,value_,UserIdColumnName,user_id_value) {
+	static delete(tableName,ColumnName,value_,UserIdColumnName,UserId) {
 		
 		
 		return new Promise(function(resolve, reject) {
     	
-		var selectSpecificPromise = ModelMaster.selectUserSpecific(tableName,ColumnName,value_,UserIdColumnName,user_id_value);
+		var selectSpecificPromise = ModelMaster.selectUserSpecific(tableName,ColumnName,value_,UserIdColumnName,UserId);
 		  
 		selectSpecificPromise.then(function(result) {
         
@@ -207,7 +207,7 @@ delete() deletes a specific record(s).
 				resolve(returned_value_);
 			}else{
 			
-			con.query('DELETE FROM ' + tableName + ' WHERE '+ColumnName+' = '+ mysql.escape(value_)+' AND '+UserIdColumnName+' = '+ mysql.escape(user_id_value), function (err, result) {
+			con.query('DELETE FROM ' + tableName + ' WHERE '+ColumnName+' = '+ mysql.escape(value_)+' AND '+UserIdColumnName+' = '+ mysql.escape(UserId), function (err, result) {
             if (err){reject(err);}
             
 			var returned_value_="Record Succesfully Deleted";
@@ -312,10 +312,10 @@ batch_program() is a special function that handles batch jobs.
 	
 	
 /*This function implements a select query based on the session Id/User making this request*/	
-	static selectUserSpecific(tableName,ColumnName,value_,UserIdColumnName,user_id_value) {
+	static user_specific_select_query(tableName,ColumnName,value_,UserIdColumnName,UserId) {
 
      return new Promise(function(resolve, reject) {
-        var sql = 'SELECT * FROM '+tableName+' WHERE '+ColumnName+' = '+ mysql.escape(value_)+' AND '+UserIdColumnName+' = '+ mysql.escape(user_id_value);
+        var sql = 'SELECT * FROM '+tableName+' WHERE '+ColumnName+' = '+ mysql.escape(value_)+' AND '+UserIdColumnName+' = '+ mysql.escape(UserId);
         con.query(sql, function (err, result) {
             if (err){reject(err);}
                    else {

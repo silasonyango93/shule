@@ -1,5 +1,5 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the "my_favorites" table's model
+This class is the "department_types" table's model
 class.It receives any CRUD operation 
 requests and hands the over to class 
 ModelMaster.It creates an instance of class
@@ -10,10 +10,10 @@ functions.
 
 
 const ModelMaster=require('../ModelMaster.js');
-const TableName="my_favorites";
+const TableName="department_types";
 
 
-module.exports = class FavoritesModel{
+module.exports = class DepartmentTypesModel{
 
 
     constructor(){                                                                                                                                                                                                                                                             
@@ -22,15 +22,15 @@ module.exports = class FavoritesModel{
 	
 	
 	
-   static insert_my_favorites(jsonObject_){
+   static insert(jsonObject_){
 	   return new Promise(function(resolve, reject) {
 	   
  	   
 
-       var myModelMasterPromise = ModelMaster.insert(TableName,jsonObject_);
+       var myPromise = ModelMaster.insert(TableName,jsonObject_);
 		   
 		   
-		   myModelMasterPromise.then(function(result) {
+		   myPromise.then(function(result) {
         
            resolve(result);
            }, function(err) {
@@ -47,12 +47,12 @@ module.exports = class FavoritesModel{
 	
 	
 	
-   static get_all_my_favorites(){
+   static get_all_records(){
 	   return new Promise(function(resolve, reject) {
         
 
-        var myModelMasterPromise = ModelMaster.selectAll(TableName);
-		 myModelMasterPromise.then(function(result) {
+        var myPromise = ModelMaster.selectAll(TableName);
+		 myPromise.then(function(result) {
         
            resolve(result);
            }, function(err) {
@@ -70,13 +70,13 @@ module.exports = class FavoritesModel{
 	
 	
 	
-   static get_specific_my_favorites(ColumnName,value_){
+   static get_specific_records(ColumnName,value_){
 	   return new Promise(function(resolve, reject) {
         
 
 
-        var myModelMasterPromise = ModelMaster.selectSpecific(TableName,ColumnName,value_);
-		   myModelMasterPromise.then(function(result) {
+        var myPromise = ModelMaster.selectSpecific(TableName,ColumnName,value_);
+		   myPromise.then(function(result) {
         
            resolve(result);
            }, function(err) {
@@ -89,13 +89,13 @@ module.exports = class FavoritesModel{
 	
 	
 	
-   static batch_my_favorites_update(jsonObject_){
+   static batch_update(jsonObject_){
 	   return new Promise(function(resolve, reject) {
         
 
 
-        var myModelMasterPromise = ModelMaster.batch_update(TableName,jsonObject_);
-		   myModelMasterPromise.then(function(result) {
+        var myPromise = ModelMaster.batch_update(TableName,jsonObject_);
+		   myPromise.then(function(result) {
         
            resolve(result);
            }, function(err) {
@@ -108,13 +108,13 @@ module.exports = class FavoritesModel{
 	
 	
 	
-   static individual_my_favorites_update(ColumnName,value_,jsonObject_){
+   static individual_record_update(ColumnName,value_,jsonObject_){
 	   return new Promise(function(resolve, reject) {
         
 
         
-		var myModelMasterPromise = ModelMaster.individual_update(TableName,jsonObject_,ColumnName,value_);
-		   myModelMasterPromise.then(function(result) {
+		var myPromise = ModelMaster.individual_update(TableName,jsonObject_,ColumnName,value_);
+		   myPromise.then(function(result) {
         
            resolve(result);
            }, function(err) {
@@ -126,13 +126,13 @@ module.exports = class FavoritesModel{
 	
 	
 	
-   static delete_my_favorites_record(ColumnName,value_,UserIdColumnName,user_id_value){
+   static delete_user_specic_record(ColumnName,value_,UserIdColumnName,UserId){
 	   return new Promise(function(resolve, reject) {
         
 
         
-		var myModelMasterPromise = ModelMaster.delete(TableName,ColumnName,value_,UserIdColumnName,user_id_value);
-		   myModelMasterPromise.then(function(result) {
+		var myPromise = ModelMaster.delete(TableName,ColumnName,value_,UserIdColumnName,UserId);
+		   myPromise.then(function(result) {
         
            resolve(result);
            }, function(err) {
@@ -148,8 +148,8 @@ module.exports = class FavoritesModel{
         
 
         
-		var myModelMasterPromise = ModelMaster.get_number_of_records(TableName,ColumnName,value_);
-		   myModelMasterPromise.then(function(result) {
+		var myPromise = ModelMaster.get_number_of_records(TableName,ColumnName,value_);
+		   myPromise.then(function(result) {
         
            resolve(result);
            }, function(err) {
@@ -157,6 +157,25 @@ module.exports = class FavoritesModel{
            })
      })
     }	
+	
+	
+	
+	
+
+  static user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.user_specific_select_query(TableName,ColumnName,value_,UserIdColumnName,UserId);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }		
 	
 	
 	

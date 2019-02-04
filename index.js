@@ -51,7 +51,7 @@ app.use((req,res,next)=>{
 
 
 app.use(require('./routes/users_management/UsersRoutes.js'));
-app.use(require('./routes/users_management/FavoritesRoutes.js'));
+app.use(require('./routes/department_management/DepartmentTypesRoutes.js'));
 
 
 app.use(function (err, req, res, next) {
