@@ -1,8 +1,8 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the departments table's route class.
+This class is the student_record_types table's route class.
 It is initialized at the "Index.js" and is able to recieve
 calls from the client and passes the calls down to the 
-"DepartmentsController" class
+"StudentRecordTypesController" class
 */
 
 
@@ -11,7 +11,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-const DepartmentsController = require('../../controllers/department_management/DepartmentsController.js');
+const StudentRecordTypesController = require('../../controllers/student_management/StudentRecordTypesController.js');
 
 
 
@@ -23,26 +23,25 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/add_departments', urlencodedParser,function(request,response){
+   router.post('/add_student_record_types', urlencodedParser,function(request,response){
 	   
 	   
 	   
         var	jsonObject_ = {
          
 		    
-			DepartmentTypeId:request.body.DepartmentTypeId,
-			DepartmentName:request.body.DepartmentName,
-			DepartmentDescription:request.body.DepartmentDescription,
-			DepartmentRefNo:request.body.DepartmentRefNo
 			
-						   
+			
+			RecordTypeDescription:request.body.RecordTypeDescription
+			
+			
 		 
 		
       
         };
 	
 	     
-          var myPromise = DepartmentsController.insert(jsonObject_);
+          var myPromise = StudentRecordTypesController.insert(jsonObject_);
 	          
 		   
 		   myPromise.then(function(result) {
@@ -61,9 +60,9 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_all_departments',urlencodedParser,function(request,response){
+   router.post('/get_all_student_record_types',urlencodedParser,function(request,response){
     
-    var myPromise = DepartmentsController.get_all_records();
+    var myPromise = StudentRecordTypesController.get_all_records();
 	      
 		   
 		   myPromise.then(function(result) {
@@ -85,7 +84,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_specific_departments',urlencodedParser,function(request,response){
+   router.post('/get_specific_student_record_types',urlencodedParser,function(request,response){
         var mKey=request.body.column_name;
         //var mValue=parseInt(request.query.search_value, 10);
         var mValue=request.body.search_value;
@@ -93,7 +92,7 @@ router.use(function timeLog(req, res, next) {
         
 
 
-        var myPromise = DepartmentsController.get_specific_records(mKey,mValue);
+        var myPromise = StudentRecordTypesController.get_specific_records(mKey,mValue);
 	        
 		   
 		   myPromise.then(function(result) {
@@ -119,22 +118,23 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/update_departments',urlencodedParser,function(request,response){
+   router.post('/update_student_record_types',urlencodedParser,function(request,response){
 	   
 	  
-	
-    var	jsonObject_ = {
+	   var	jsonObject_ = {
          
-		    DepartmentTypeId:request.body.DepartmentTypeId,
-			DepartmentName:request.body.DepartmentName,
-			DepartmentDescription:request.body.DepartmentDescription,
-			DepartmentRefNo:request.body.DepartmentRefNo
+		    
+			
+			RecordTypeDescription:request.body.RecordTypeDescription
+			
+			
+		 
 		
       
         };
 	
     
-    var myPromise = DepartmentsController.batch_update(jsonObject_);
+    var myPromise = StudentRecordTypesController.batch_update(jsonObject_);
 	   
 		   
 		   myPromise.then(function(result) {
@@ -155,25 +155,25 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/update_individual_departments',urlencodedParser,function(request,response){
+   router.post('/update_individual_student_record_types',urlencodedParser,function(request,response){
 	
           var column_name=request.body.ColumnName;
           var value_=request.body.ColumnValue;
 	   
-	   
-	
-          var	jsonObject_ = {
+	   var	jsonObject_ = {
          
-		    DepartmentTypeId:request.body.DepartmentTypeId,
-			DepartmentName:request.body.DepartmentName,
-			DepartmentDescription:request.body.DepartmentDescription,
-			DepartmentRefNo:request.body.DepartmentRefNo
+		    
+			
+			RecordTypeDescription:request.body.RecordTypeDescription
+			
+			
+		 
 		
       
-           };
+        };
 	
          
-         var myPromise = DepartmentsController.individual_record_update(column_name,value_,jsonObject_);
+         var myPromise = StudentRecordTypesController.individual_record_update(column_name,value_,jsonObject_);
 	         	        
 		   
 		   myPromise.then(function(result) {
@@ -192,7 +192,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/delete_individual_departments',urlencodedParser,function(request,response){
+   router.post('/delete_individual_student_record_types',urlencodedParser,function(request,response){
 	
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -203,7 +203,7 @@ router.use(function timeLog(req, res, next) {
 	var UserId=request.body.UserId;
 	
     
-    var myPromise = DepartmentsController.delete_user_specic_record(column_name,value_,UserIdColumnName,UserId);
+    var myPromise = StudentRecordTypesController.delete_user_specic_record(column_name,value_,UserIdColumnName,UserId);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -222,7 +222,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_number_of_departments_records',urlencodedParser,function(request,response){
+   router.post('/get_number_of_student_record_types_records',urlencodedParser,function(request,response){
 	
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -230,7 +230,7 @@ router.use(function timeLog(req, res, next) {
 	
 	
     
-    var myPromise = DepartmentsController.get_number_of_records(column_name,value_);
+    var myPromise = StudentRecordTypesController.get_number_of_records(column_name,value_);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -250,7 +250,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-router.post('/departments_user_specific_query',urlencodedParser,function(request,response){
+router.post('/student_record_types_user_specific_query',urlencodedParser,function(request,response){
 	
     var ColumnName=request.body.ColumnName;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -262,7 +262,7 @@ router.post('/departments_user_specific_query',urlencodedParser,function(request
 	
 	
     
-    var myPromise = DepartmentsController.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
+    var myPromise = StudentRecordTypesController.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
 	      	        
 		   
 		   myPromise.then(function(result) {
