@@ -186,6 +186,28 @@ app.use(require('./routes/school_calender/ActualWeeksRoutes.js'));
 
 
 
+
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Academic Subjects Management*/
+
+app.use(require('./routes/academic_subjects_management/FieldCategoriesRoutes.js'));
+app.use(require('./routes/academic_subjects_management/FieldsRoutes.js'));
+app.use(require('./routes/academic_subjects_management/SubjectsRoutes.js'));
+app.use(require('./routes/academic_subjects_management/ClassSpecificSubjectsRoutes.js'));
+app.use(require('./routes/academic_subjects_management/TeachersClassSpecificSubjectsRoutes.js'));
+app.use(require('./routes/academic_subjects_management/TeacherClassSpecificSubjectInformationTypesRoutes.js'));
+app.use(require('./routes/academic_subjects_management/TeacherClassSpecificSubjectInformationRoutes.js'));
+app.use(require('./routes/academic_subjects_management/StudentClassSpecificSubjectRshipRoutes.js'));
+app.use(require('./routes/academic_subjects_management/StudentClassSpecificSubjectInformationTypesRoutes.js'));
+app.use(require('./routes/academic_subjects_management/StudentClassSpecificSubjectInformationRoutes.js'));
+app.use(require('./routes/academic_subjects_management/ClassSpecificSubjectInformationTypesRoutes.js'));
+app.use(require('./routes/academic_subjects_management/ClassSpecificSubjectInformationRoutes.js'));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End Academic Subjects Management*/
+
+
+
+
 app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.status(500).send('Something broke!')
