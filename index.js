@@ -208,6 +208,37 @@ app.use(require('./routes/academic_subjects_management/ClassSpecificSubjectInfor
 
 
 
+
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Exams Management*/
+
+app.use(require('./routes/exams_management/ExamTypesRoutes.js'));
+app.use(require('./routes/exams_management/ExamsRoutes.js'));
+app.use(require('./routes/exams_management/ExamInformationTypesRoutes.js'));
+app.use(require('./routes/exams_management/ExamsInformationRoutes.js'));
+app.use(require('./routes/exams_management/ClassSpecificExaminationCommentsRoutes.js'));
+app.use(require('./routes/exams_management/StudentSpecificExaminationCommentsRoutes.js'));
+app.use(require('./routes/exams_management/ExamPapersRoutes.js'));
+app.use(require('./routes/exams_management/SpecificStudentExamPapersRoutes.js'));
+app.use(require('./routes/exams_management/SpecificStudentExamPapersInformationTypesRoutes.js'));
+app.use(require('./routes/exams_management/SpecificStudentExamPapersInformationRoutes.js'));
+app.use(require('./routes/exams_management/FieldGradeConfigurationRoutes.js'));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Exams Management*/
+
+
+
+
+
+
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Timetable Management*/
+
+app.use(require('./routes/class_timetable_management/SlotConfigurationRoutes.js'));
+
+
+
+
 app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.status(500).send('Something broke!')
