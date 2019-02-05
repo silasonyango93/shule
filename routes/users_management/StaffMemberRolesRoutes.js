@@ -1,8 +1,8 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the prefect_individual_qualities table's route class.
+This class is the staff_member_roles table's route class.
 It is initialized at the "Index.js" and is able to recieve
 calls from the client and passes the calls down to the 
-"PrefectIndividualQualitiesController" class
+"StaffMemberRolesController" class
 */
 
 
@@ -11,7 +11,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-const PrefectIndividualQualitiesController = require('../../controllers/prefects_management/PrefectIndividualQualitiesController.js');
+const StaffMemberRolesController = require('../../controllers/users_management/StaffMemberRolesController.js');
 
 
 
@@ -23,7 +23,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/add_prefect_individual_qualities', urlencodedParser,function(request,response){
+   router.post('/add_staff_member_roles', urlencodedParser,function(request,response){
 	   
 	   
 	   
@@ -32,15 +32,20 @@ router.use(function timeLog(req, res, next) {
 		    
 			
 			
-			PrefectId:request.body.PrefectId,
-			PrefectTypeId:request.body.PrefectTypeId
+			StudentTeamMemberId:request.body.StudentTeamMemberId,
+			RoleDescription:request.body.RoleDescription,
+			Done:request.body.Done
 			
 			
+			
+			
+		 
+		
       
         };
 	
 	     
-          var myPromise = PrefectIndividualQualitiesController.insert(jsonObject_);
+          var myPromise = StaffMemberRolesController.insert(jsonObject_);
 	          
 		   
 		   myPromise.then(function(result) {
@@ -59,9 +64,9 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_all_prefect_individual_qualities',urlencodedParser,function(request,response){
+   router.post('/get_all_staff_member_roles',urlencodedParser,function(request,response){
     
-    var myPromise = PrefectIndividualQualitiesController.get_all_records();
+    var myPromise = StaffMemberRolesController.get_all_records();
 	      
 		   
 		   myPromise.then(function(result) {
@@ -83,7 +88,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_specific_prefect_individual_qualities',urlencodedParser,function(request,response){
+   router.post('/get_specific_staff_member_roles',urlencodedParser,function(request,response){
         var mKey=request.body.column_name;
         //var mValue=parseInt(request.query.search_value, 10);
         var mValue=request.body.search_value;
@@ -91,7 +96,7 @@ router.use(function timeLog(req, res, next) {
         
 
 
-        var myPromise = PrefectIndividualQualitiesController.get_specific_records(mKey,mValue);
+        var myPromise = StaffMemberRolesController.get_specific_records(mKey,mValue);
 	        
 		   
 		   myPromise.then(function(result) {
@@ -117,22 +122,30 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/update_prefect_individual_qualities',urlencodedParser,function(request,response){
+   router.post('/update_staff_member_roles',urlencodedParser,function(request,response){
 	   
 	  
-	   var	jsonObject_ = {
+	   var date = new Date();
+       date.setHours(date.getHours()+0);
+	   
+        var	jsonObject_ = {
          
 		    
 			
-			PrefectId:request.body.PrefectId,
-			PrefectTypeId:request.body.PrefectTypeId
+			
+			StudentTeamMemberId:request.body.StudentTeamMemberId,
+			RoleDescription:request.body.RoleDescription,
+			Done:request.body.Done
 			
 			
+			
+		 
+		
       
         };
 	
     
-    var myPromise = PrefectIndividualQualitiesController.batch_update(jsonObject_);
+    var myPromise = StaffMemberRolesController.batch_update(jsonObject_);
 	   
 		   
 		   myPromise.then(function(result) {
@@ -153,24 +166,31 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/update_individual_prefect_individual_qualities',urlencodedParser,function(request,response){
+   router.post('/update_individual_staff_member_roles',urlencodedParser,function(request,response){
 	
           var column_name=request.body.ColumnName;
           var value_=request.body.ColumnValue;
 	   
-	   var	jsonObject_ = {
+	   var date = new Date();
+       date.setHours(date.getHours()+0);
+	   
+        var	jsonObject_ = {
          
 		    
 			
-			PrefectId:request.body.PrefectId,
-			PrefectTypeId:request.body.PrefectTypeId
+			
+			StudentTeamMemberId:request.body.StudentTeamMemberId,
+			RoleDescription:request.body.RoleDescription,
+			Done:request.body.Done
 			
 			
+		 
+		
       
         };
 	
          
-         var myPromise = PrefectIndividualQualitiesController.individual_record_update(column_name,value_,jsonObject_);
+         var myPromise = StaffMemberRolesController.individual_record_update(column_name,value_,jsonObject_);
 	         	        
 		   
 		   myPromise.then(function(result) {
@@ -189,7 +209,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/delete_individual_prefect_individual_qualities',urlencodedParser,function(request,response){
+   router.post('/delete_individual_staff_member_roles',urlencodedParser,function(request,response){
 	
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -200,7 +220,7 @@ router.use(function timeLog(req, res, next) {
 	var UserId=request.body.UserId;
 	
     
-    var myPromise = PrefectIndividualQualitiesController.delete_user_specic_record(column_name,value_,UserIdColumnName,UserId);
+    var myPromise = StaffMemberRolesController.delete_user_specic_record(column_name,value_,UserIdColumnName,UserId);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -219,7 +239,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_number_of_prefect_individual_qualities_records',urlencodedParser,function(request,response){
+   router.post('/get_number_of_staff_member_roles_records',urlencodedParser,function(request,response){
 	
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -227,7 +247,7 @@ router.use(function timeLog(req, res, next) {
 	
 	
     
-    var myPromise = PrefectIndividualQualitiesController.get_number_of_records(column_name,value_);
+    var myPromise = StaffMemberRolesController.get_number_of_records(column_name,value_);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -247,7 +267,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-router.post('/prefect_individual_qualities_user_specific_query',urlencodedParser,function(request,response){
+router.post('/staff_member_roles_user_specific_query',urlencodedParser,function(request,response){
 	
     var ColumnName=request.body.ColumnName;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -259,7 +279,7 @@ router.post('/prefect_individual_qualities_user_specific_query',urlencodedParser
 	
 	
     
-    var myPromise = PrefectIndividualQualitiesController.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
+    var myPromise = StaffMemberRolesController.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
 	      	        
 		   
 		   myPromise.then(function(result) {

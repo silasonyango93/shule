@@ -124,7 +124,8 @@ router.use(function timeLog(req, res, next) {
 
 
    router.post('/update_prefect_on_duty_information',urlencodedParser,function(request,response){
-	   
+	   var date = new Date();
+       date.setHours(date.getHours()+0);
 	  
 	  var	jsonObject_ = {
          
@@ -170,6 +171,9 @@ router.use(function timeLog(req, res, next) {
 	
           var column_name=request.body.ColumnName;
           var value_=request.body.ColumnValue;
+	   
+	   var date = new Date();
+       date.setHours(date.getHours()+0);
 	   
 	   var	jsonObject_ = {
          

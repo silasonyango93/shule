@@ -11,7 +11,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-const RolesController = require('../../controllers/team_management/RolesController.js');
+const RolesController = require('../../controllers/users_management/RolesController.js');
 
 
 

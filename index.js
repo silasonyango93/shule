@@ -170,6 +170,22 @@ app.use(require('./routes/duty_rosters/PrefectsOnDutyInformationRoutes.js'));
 
 
 
+
+
+
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start School Calender Management*/
+
+app.use(require('./routes/school_calender/TermIterationsRoutes.js'));
+app.use(require('./routes/school_calender/ActualTermsRoutes.js'));
+app.use(require('./routes/school_calender/WeekIterationsRoutes.js'));
+app.use(require('./routes/school_calender/ActualWeeksRoutes.js'));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End School Calender Management*/
+
+
+
+
 app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.status(500).send('Something broke!')
