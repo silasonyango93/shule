@@ -236,6 +236,20 @@ app.use(require('./routes/exams_management/FieldGradeConfigurationRoutes.js'));
 
 app.use(require('./routes/class_timetable_management/SlotConfigurationRoutes.js'));
 
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Timetable Management*/
+
+
+
+
+
+
+
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Library Management*/
+
+app.use(require('./routes/library_management/ResourceTypesRoutes.js'));
+app.use(require('./routes/library_management/ResourcesRoutes.js'));
+
 
 
 
