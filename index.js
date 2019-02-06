@@ -273,6 +273,38 @@ app.use(require('./routes/library_management/ResourceRuleStatementsRoutes.js'));
 
 
 
+
+
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Boarding section Management*/
+
+app.use(require('./routes/boarding_section/DormitoryTypesRoutes.js'));
+app.use(require('./routes/boarding_section/DormitoriesRoutes.js'));
+app.use(require('./routes/boarding_section/DormitoryIndividualQualitiesRoutes.js'));
+app.use(require('./routes/boarding_section/DormitoryInformationTypesRoutes.js'));
+app.use(require('./routes/boarding_section/DormitoryInformationRoutes.js'));
+app.use(require('./routes/boarding_section/BedTypesRoutes.js'));
+app.use(require('./routes/boarding_section/BedsRoutes.js'));
+app.use(require('./routes/boarding_section/BedInformationTypesRoutes.js'));
+app.use(require('./routes/boarding_section/BedsInformationRoutes.js'));
+app.use(require('./routes/boarding_section/DormitoryLocationTypesRoutes.js'));
+app.use(require('./routes/boarding_section/DormitoryLocationConfigurationRoutes.js'));
+app.use(require('./routes/boarding_section/DormitorySubLocationsRoutes.js'));
+app.use(require('./routes/boarding_section/BedLocationsRoutes.js'));
+app.use(require('./routes/boarding_section/BedAllocationRoutes.js'));
+app.use(require('./routes/boarding_section/BedAllocationInformationTypesRoutes.js'));
+app.use(require('./routes/boarding_section/BedAllocationInformationRoutes.js'));
+app.use(require('./routes/boarding_section/CleanlinessInspectionCategoriesRoutes.js'));
+app.use(require('./routes/boarding_section/InspectionElementsRoutes.js'));
+app.use(require('./routes/boarding_section/DormitoryInspectionElementMarksRoutes.js'));
+app.use(require('./routes/boarding_section/WeeklyDormitoryFinalResultsRoutes.js'));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End Boarding section Management*/
+
+
+
+
+
 app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.status(500).send('Something broke!')
