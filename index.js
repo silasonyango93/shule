@@ -236,7 +236,7 @@ app.use(require('./routes/exams_management/FieldGradeConfigurationRoutes.js'));
 
 app.use(require('./routes/class_timetable_management/SlotConfigurationRoutes.js'));
 
-/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Timetable Management*/
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End Timetable Management*/
 
 
 
@@ -249,6 +249,26 @@ app.use(require('./routes/class_timetable_management/SlotConfigurationRoutes.js'
 
 app.use(require('./routes/library_management/ResourceTypesRoutes.js'));
 app.use(require('./routes/library_management/ResourcesRoutes.js'));
+app.use(require('./routes/library_management/ResourceIndividualQualitiesRoutes.js'));
+app.use(require('./routes/library_management/ResourceAuthorsRoutes.js'));
+app.use(require('./routes/library_management/ResourcePublishersRoutes.js'));
+app.use(require('./routes/library_management/LocationConfigurationRoutes.js'));
+app.use(require('./routes/library_management/LocationTypesRoutes.js'));
+app.use(require('./routes/library_management/SubLocationsRoutes.js'));
+app.use(require('./routes/library_management/LibraryFieldsRoutes.js'));
+app.use(require('./routes/library_management/MasterCatalogueRoutes.js'));
+app.use(require('./routes/library_management/ResourceCatalogueRoutes.js'));
+app.use(require('./routes/library_management/ClassTextBooksRoutes.js'));
+app.use(require('./routes/library_management/StudentResourceLeasingRoutes.js'));
+app.use(require('./routes/library_management/StudentResourceLeasingInformationTypesRoutes.js'));
+app.use(require('./routes/library_management/StudentResourceLeasingInformationRoutes.js'));
+app.use(require('./routes/library_management/StaffResourceLeasingInformationRoutes.js'));
+app.use(require('./routes/library_management/StaffResourceLeasingInformationTypesRoutes.js'));
+app.use(require('./routes/library_management/StaffResourceLeasingRoutes.js'));
+app.use(require('./routes/library_management/RuleAspectsRoutes.js'));
+app.use(require('./routes/library_management/ResourceRuleStatementsRoutes.js'));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End Library Management*/
 
 
 
