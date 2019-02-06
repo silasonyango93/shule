@@ -305,6 +305,26 @@ app.use(require('./routes/boarding_section/WeeklyDormitoryFinalResultsRoutes.js'
 
 
 
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Finance and Fee Management*/
+
+app.use(require('./routes/finance_and_fee_management/PayableServicesCategoriesRoutes.js'));
+app.use(require('./routes/finance_and_fee_management/PayableServiceConfigurationRoutes.js'));
+app.use(require('./routes/finance_and_fee_management/IndividualStudentPayableServicesRoutes.js'));
+app.use(require('./routes/finance_and_fee_management/TermFeeConfigurationRoutes.js'));
+app.use(require('./routes/finance_and_fee_management/InstallmentsRoutes.js'));
+app.use(require('./routes/finance_and_fee_management/BalancesRoutes.js'));
+app.use(require('./routes/finance_and_fee_management/CarryForwardAmountsRoutes.js'));
+app.use(require('./routes/finance_and_fee_management/AnnualPayableFeeRoutes.js'));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End Finance and Fee Management*/
+
+
+
+
+
+
+
+
 app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.status(500).send('Something broke!')
