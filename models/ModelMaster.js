@@ -47,7 +47,7 @@ database.
 		  con.query('INSERT INTO ' + tableName + ' SET ?', jsonObject_, function (err, result) {
             if (err){reject(err);}
                else {
-				   var returned_value_="Record inserted succesfully.";
+				   var returned_value_={success:true, message:"Record inserted succesfully."};
                    resolve(returned_value_);
                     }
             
