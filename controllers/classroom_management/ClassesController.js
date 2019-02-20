@@ -174,6 +174,26 @@ module.exports = class ClassesController{
            })
 		   
 	 })
+    }
+	
+	
+	
+	
+	static get_all_classes_by_full_reference(TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = ClassesModel.get_all_classes_by_full_reference(TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
     }	
 	
 	

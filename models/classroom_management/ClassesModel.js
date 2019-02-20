@@ -175,7 +175,28 @@ module.exports = class ClassesModel{
            reject(err);
            })
      })
-    }		
+    }
+	
+	
+	
+	
+  static get_all_classes_by_full_reference(TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.three_table_one_parent_no_searchkey_inner_join(TableName,TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }			
+	
+	
+	
 	
 	
 	

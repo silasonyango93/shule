@@ -32,7 +32,8 @@ router.use(function timeLog(req, res, next) {
 		    
 			
 			AcademicClassLevelName:request.body.AcademicClassLevelName,
-			AcademicClassLevelDescription:request.body.AcademicClassLevelDescription
+			AcademicClassLevelDescription:request.body.AcademicClassLevelDescription,
+			HierarchyCode:request.body.HierarchyCode
 			
 						   
 		 
@@ -125,7 +126,8 @@ router.use(function timeLog(req, res, next) {
     var	jsonObject_ = {
          
 		    AcademicClassLevelName:request.body.AcademicClassLevelName,
-			AcademicClassLevelDescription:request.body.AcademicClassLevelDescription
+			AcademicClassLevelDescription:request.body.AcademicClassLevelDescription,
+			HierarchyCode:request.body.HierarchyCode
 		
       
         };
@@ -162,7 +164,8 @@ router.use(function timeLog(req, res, next) {
           var	jsonObject_ = {
          
 		    AcademicClassLevelName:request.body.AcademicClassLevelName,
-			AcademicClassLevelDescription:request.body.AcademicClassLevelDescription
+			AcademicClassLevelDescription:request.body.AcademicClassLevelDescription,
+			HierarchyCode:request.body.HierarchyCode
 		
       
            };

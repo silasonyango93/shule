@@ -281,6 +281,55 @@ an inner join query between two tables
 	
 	
 	
+   /*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The three_table_one_parent_with_searchkey_inner_join() is used to conduct
+an inner join query between three tables where one table(TableOne) is the parent 
+of the other two,and there is a WHERE clause
+
+*/	
+	static three_table_one_parent_with_searchkey_inner_join(TableOne,TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo,SearchColumn,SearchValue) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKeyOne+' = '+TableTwo+'.'+JoiningKeyOne+' INNER JOIN '+TableThree+' ON '+TableOne+'.'+JoiningKeyTwo+' = '+TableThree+'.'+JoiningKeyTwo+' WHERE '+TableOne+'.'+SearchColumn+'= '+ mysql.escape(SearchValue),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }
+	
+	
+	
+      /*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The three_table_one_parent_no_searchkey_inner_join() is used to conduct
+an inner join query between three tables where one table(TableOne) is the parent 
+of the other two,and there is no WHERE clause
+
+*/	
+	static three_table_one_parent_no_searchkey_inner_join(TableOne,TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKeyOne+' = '+TableTwo+'.'+JoiningKeyOne+' INNER JOIN '+TableThree+' ON '+TableOne+'.'+JoiningKeyTwo+' = '+TableThree+'.'+JoiningKeyTwo,function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }
+	
+	
+	
+	
 	
 /*SON/2018-11-06 00:29 - DEVELOPMENT
 	

@@ -305,6 +305,38 @@ router.post('/classes_user_specific_query',urlencodedParser,function(request,res
 
 
 
+
+
+
+router.post('/get_all_class_by_full_reference',urlencodedParser,function(request,response){
+	
+    var TableTwo=request.body.TableTwo;
+   
+    var JoiningKeyOne=request.body.JoiningKeyOne;
+	
+	var TableThree=request.body.TableThree;
+	
+	var JoiningKeyTwo=request.body.JoiningKeyTwo;
+	
+	
+    
+    var myPromise = ClassesController.get_all_classes_by_full_reference(TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });
+
+
+
+
  
  
 module.exports = router;
