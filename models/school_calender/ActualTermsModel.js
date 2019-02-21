@@ -175,7 +175,25 @@ module.exports = class ActualTermsModel{
            reject(err);
            })
      })
-    }		
+    }
+	
+	
+	
+	
+  static get_all_current_year_terms(TableOne,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.two_table_inner_join(TableOne,TableName,JoiningKey,SearchColumn,SearchValue);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }	
 	
 	
 	

@@ -174,7 +174,28 @@ module.exports = class ActualTermsController{
            })
 		   
 	 })
+    }
+	
+	
+	
+	
+	static get_all_current_year_terms(TableOne,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = ActualTermsModel.get_all_current_year_terms(TableOne,JoiningKey,SearchColumn,SearchValue);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
     }	
+	
 	
 	
 	

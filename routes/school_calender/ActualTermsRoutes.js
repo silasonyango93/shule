@@ -285,6 +285,39 @@ router.post('/actual_terms_user_specific_query',urlencodedParser,function(reques
 
 
 
+
+
+
+
+router.post('/get_all_current_year_terms',urlencodedParser,function(request,response){
+	
+    var TableOne=request.body.TableOne;
+    
+    var JoiningKey=request.body.JoiningKey;
+	
+	var SearchColumn=request.body.SearchColumn;
+	
+	var SearchValue=request.body.SearchValue;
+	
+	
+    
+    var myPromise = ActualTermsController.get_all_current_year_terms(TableOne,JoiningKey,SearchColumn,SearchValue);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });
+
+
+
+
  
  
 module.exports = router;
