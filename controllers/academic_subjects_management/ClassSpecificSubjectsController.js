@@ -179,4 +179,27 @@ module.exports = class ClassSpecificSubjectsController{
 	
 	
 	
+	
+	static get_a_specific_class_subjects_by_full_reference(TableOne,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = ClassSpecificSubjectsModel.get_a_specific_class_subjects_by_full_reference(TableOne,JoiningKey,SearchColumn,SearchValue);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+	
+	
+	
+	
+	
+	
 }

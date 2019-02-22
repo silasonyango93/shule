@@ -177,6 +177,27 @@ module.exports = class ClassSpecificSubjectsModel{
      })
     }		
 	
+
+	
+	
+  static get_a_specific_class_subjects_by_full_reference(TableOne,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.two_table_inner_join(TableOne,TableName,JoiningKey,SearchColumn,SearchValue);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }	
+	
+	
+	
+	
 	
 	
 	

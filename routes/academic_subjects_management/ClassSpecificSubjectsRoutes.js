@@ -279,6 +279,42 @@ router.post('/class_specific_subjects_user_specific_query',urlencodedParser,func
 
 
 
+
+
+
+router.post('/get_a_specific_class_subjects_by_full_reference',urlencodedParser,function(request,response){
+	
+    var TableOne=request.body.TableOne;
+    
+    var JoiningKey=request.body.JoiningKey;
+	
+	var SearchColumn=request.body.SearchColumn;
+	
+	var SearchValue=request.body.SearchValue;
+	
+	
+    
+    var myPromise = ClassSpecificSubjectsController.get_a_specific_class_subjects_by_full_reference(TableOne,JoiningKey,SearchColumn,SearchValue);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });
+
+
+
+
+
+
+
+
  
  
 module.exports = router;
