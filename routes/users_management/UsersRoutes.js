@@ -122,7 +122,8 @@ router.use(function timeLog(req, res, next) {
 		   
 		   myUsersControllerObjectPromise.then(function(result) {
         
-           response.send(result);
+           var response_object={results:result}
+           response.send(response_object);
            }, function(err) {
 			   console.log(err);
            response.send("An error occurred");
@@ -164,7 +165,8 @@ router.use(function timeLog(req, res, next) {
 		   
 		   myUsersControllerObjectPromise.then(function(result) {
         
-           response.send(result);
+           var response_object={results:result}
+           response.send(response_object);
            }, function(err) {
            response.send("An error occurred");
 			   console.log(err);
@@ -191,7 +193,8 @@ router.use(function timeLog(req, res, next) {
 		   
 		   myUsersControllerObjectPromise.then(function(result) {
         
-           response.send(result);
+           var response_object={results:result}
+           response.send(response_object);
            }, function(err) {
            response.send("An error occurred");
 			   console.log(err);
@@ -237,7 +240,8 @@ router.use(function timeLog(req, res, next) {
 		   
 		   myUsersControllerObjectPromise.then(function(result) {
         
-           response.send(result);
+           var response_object={results:result}
+           response.send(response_object);
            }, function(err) {
            response.send("An error occurred");
 			   console.log(err);
@@ -262,13 +266,44 @@ router.use(function timeLog(req, res, next) {
 		   
 		   myUsersControllerObjectPromise.then(function(result) {
         
-           response.send(result);
+           var response_object={results:result}
+           response.send(response_object);
            }, function(err) {
            response.send("An error occurred");
 			   console.log(err);
            })
 
    });
+   
+   
+   
+   
+   
+   router.post('/get_staff_members_with_a_specific_quality',urlencodedParser,function(request,response){
+	
+    var TableTwo=request.body.TableTwo;
+    
+    var JoiningKey=request.body.JoiningKey;
+	
+	var SearchColumn=request.body.SearchColumn;
+    
+    var SearchValue=request.body.SearchValue;
+	
+    
+    var myUsersControllerObjectPromise = UsersController.get_staff_members_with_a_specific_quality(TableTwo,JoiningKey,SearchColumn,SearchValue);
+	      	        
+		   
+		   myUsersControllerObjectPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });
+   
  
  
 module.exports = router;

@@ -141,7 +141,27 @@ module.exports = class UsersModel{
            reject(err);
            })
      })
-    }		
+    }
+	
+	
+	
+	
+	
+	
+   static get_staff_members_with_a_specific_quality(TableTwo,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myModelMasterPromise = ModelMaster.two_table_inner_join(TableName,TableTwo,JoiningKey,SearchColumn,SearchValue);
+		   myModelMasterPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }	
 	
 	
 	

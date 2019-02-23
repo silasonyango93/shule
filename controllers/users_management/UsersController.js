@@ -258,6 +258,27 @@ module.exports = class UsersController{
 	
 	
 	
+	
+   static get_staff_members_with_a_specific_quality(TableTwo,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myUsersObjectPromise = UsersModel.get_staff_members_with_a_specific_quality(TableTwo,JoiningKey,SearchColumn,SearchValue);
+		    
+		   
+		   myUsersObjectPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }	
+	
+	
+	
+	
 
 	
 	
