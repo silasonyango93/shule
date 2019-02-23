@@ -1,8 +1,8 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the staff_types table's route class.
+This class is the staff_individual_qualities table's route class.
 It is initialized at the "Index.js" and is able to recieve
 calls from the client and passes the calls down to the 
-"StaffTypesController" class
+"StaffIndividualQualitiesController" class
 */
 
 
@@ -11,7 +11,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-const StaffTypesController = require('../../controllers/staff_management/StaffTypesController.js');
+const StaffIndividualQualitiesController = require('../../controllers/staff_management/StaffIndividualQualitiesController.js');
 
 
 
@@ -23,7 +23,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/add_staff_types', urlencodedParser,function(request,response){
+   router.post('/add_staff_individual_qualities', urlencodedParser,function(request,response){
 	   
 	   
 	   
@@ -31,13 +31,14 @@ router.use(function timeLog(req, res, next) {
          
 		   
 			
-			StaffTypeDescription:request.body.StaffTypeDescription
+			StaffNo:request.body.StaffNo,
+			StaffTypeId:request.body.StaffTypeId
 			
 		
         };
 	
 	     
-          var myPromise = StaffTypesController.insert(jsonObject_);
+          var myPromise = StaffIndividualQualitiesController.insert(jsonObject_);
 	          
 		   
 		   myPromise.then(function(result) {
@@ -56,9 +57,9 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_all_staff_types',urlencodedParser,function(request,response){
+   router.post('/get_all_staff_individual_qualities',urlencodedParser,function(request,response){
     
-    var myPromise = StaffTypesController.get_all_records();
+    var myPromise = StaffIndividualQualitiesController.get_all_records();
 	      
 		   
 		   myPromise.then(function(result) {
@@ -80,7 +81,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_specific_staff_types',urlencodedParser,function(request,response){
+   router.post('/get_specific_staff_individual_qualities',urlencodedParser,function(request,response){
         var mKey=request.body.column_name;
         //var mValue=parseInt(request.query.search_value, 10);
         var mValue=request.body.search_value;
@@ -88,7 +89,7 @@ router.use(function timeLog(req, res, next) {
         
 
 
-        var myPromise = StaffTypesController.get_specific_records(mKey,mValue);
+        var myPromise = StaffIndividualQualitiesController.get_specific_records(mKey,mValue);
 	        
 		   
 		   myPromise.then(function(result) {
@@ -114,20 +115,21 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/update_staff_types',urlencodedParser,function(request,response){
+   router.post('/update_staff_individual_qualities',urlencodedParser,function(request,response){
 	   
 	  
 	   var	jsonObject_ = {
          
 		   
 			
-			StaffTypeDescription:request.body.StaffTypeDescription
+			StaffNo:request.body.StaffNo,
+			StaffTypeId:request.body.StaffTypeId
 			
 		
         };
 	
     
-    var myPromise = StaffTypesController.batch_update(jsonObject_);
+    var myPromise = StaffIndividualQualitiesController.batch_update(jsonObject_);
 	   
 		   
 		   myPromise.then(function(result) {
@@ -148,7 +150,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/update_individual_staff_types',urlencodedParser,function(request,response){
+   router.post('/update_individual_staff_individual_qualities',urlencodedParser,function(request,response){
 	
           var column_name=request.body.ColumnName;
           var value_=request.body.ColumnValue;
@@ -157,13 +159,14 @@ router.use(function timeLog(req, res, next) {
          
 		   
 			
-			StaffTypeDescription:request.body.StaffTypeDescription
+			StaffNo:request.body.StaffNo,
+			StaffTypeId:request.body.StaffTypeId
 			
 		
         };
 	
          
-         var myPromise = StaffTypesController.individual_record_update(column_name,value_,jsonObject_);
+         var myPromise = StaffIndividualQualitiesController.individual_record_update(column_name,value_,jsonObject_);
 	         	        
 		   
 		   myPromise.then(function(result) {
@@ -182,7 +185,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/delete_individual_staff_types',urlencodedParser,function(request,response){
+   router.post('/delete_individual_staff_individual_qualities',urlencodedParser,function(request,response){
 	
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -193,7 +196,7 @@ router.use(function timeLog(req, res, next) {
 	var UserId=request.body.UserId;
 	
     
-    var myPromise = StaffTypesController.delete_user_specic_record(column_name,value_,UserIdColumnName,UserId);
+    var myPromise = StaffIndividualQualitiesController.delete_user_specic_record(column_name,value_,UserIdColumnName,UserId);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -212,7 +215,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_number_of_staff_types_records',urlencodedParser,function(request,response){
+   router.post('/get_number_of_staff_individual_qualities_records',urlencodedParser,function(request,response){
 	
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -220,7 +223,7 @@ router.use(function timeLog(req, res, next) {
 	
 	
     
-    var myPromise = StaffTypesController.get_number_of_records(column_name,value_);
+    var myPromise = StaffIndividualQualitiesController.get_number_of_records(column_name,value_);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -240,7 +243,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-router.post('/staff_types_user_specific_query',urlencodedParser,function(request,response){
+router.post('/staff_individual_qualities_user_specific_query',urlencodedParser,function(request,response){
 	
     var ColumnName=request.body.ColumnName;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -252,7 +255,7 @@ router.post('/staff_types_user_specific_query',urlencodedParser,function(request
 	
 	
     
-    var myPromise = StaffTypesController.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
+    var myPromise = StaffIndividualQualitiesController.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
 	      	        
 		   
 		   myPromise.then(function(result) {
