@@ -55,7 +55,8 @@ router.use(function timeLog(req, res, next) {
 		   
 		   myUsersControllerObjectPromise.then(function(result) {
         
-           response.send(result);
+           var response_object={results:result}
+           response.send(response_object);
            }, function(err) {
 			   console.log(err);
            response.send("An error occurred");

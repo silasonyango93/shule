@@ -121,6 +121,7 @@ app.use(require('./routes/staff_management/ClassTeachersRoutes.js'));
 app.use(require('./routes/staff_management/StaffRecordTypesRoutes.js'));
 app.use(require('./routes/staff_management/StaffRecordsRoutes.js'));
 app.use(require('./routes/staff_management/StaffDepartmentRelationshipRoutes.js'));
+app.use(require('./routes/staff_management/StaffTypesRoutes.js'));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End Staff Management*/
 
