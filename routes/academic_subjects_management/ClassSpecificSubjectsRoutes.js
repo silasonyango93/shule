@@ -281,7 +281,13 @@ router.post('/class_specific_subjects_user_specific_query',urlencodedParser,func
 
 
 
+/*SON - 2019-2-23 11:05 -DEVELOPMENT
 
+This route gets all subjects done in a specific class. It is used to assign
+students their subjects during registration.It is passed the class id of
+that specific class
+
+*/
 router.post('/get_a_specific_class_subjects_by_full_reference',urlencodedParser,function(request,response){
 	
     var TableOne=request.body.TableOne;
@@ -308,6 +314,43 @@ router.post('/get_a_specific_class_subjects_by_full_reference',urlencodedParser,
 
    });
 
+
+
+
+
+
+/*SON - 2019-2-23 11:05 -DEVELOPMENT
+
+This route gets all specic class-subjects done by all classes. It is used to assign
+teachers their subjects during registration.
+
+*/
+router.post('/get_all_class_subjects_by_full_reference',urlencodedParser,function(request,response){
+	
+	var JoiningKeyOne=request.body.JoiningKeyOne;
+    var TableTwo=request.body.TableTwo;
+	var JoiningKeyTwo=request.body.JoiningKeyTwo;
+	var TableThree=request.body.TableThree;
+	var JoiningKeyThree=request.body.JoiningKeyThree;
+	var TableFour=request.body.TableFour;
+	var JoiningKeyFour=request.body.JoiningKeyFour;
+	var TableFive=request.body.TableFive;
+    
+	
+    
+    var myPromise = ClassSpecificSubjectsController.get_all_class_subjects_by_full_reference(TableTwo,TableThree,TableFour,TableFive,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });
 
 
 

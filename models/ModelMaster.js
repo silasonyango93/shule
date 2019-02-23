@@ -405,5 +405,64 @@ batch_program() is a special function that handles batch jobs.
 
     }
 	
+	
+	
+	
+	
+	
+/*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The two_table_inner_join() is used to conduct
+an inner join query between two tables but 
+with no WHERE clause(No condition)
+
+*/	
+	static two_table_inner_join_with_no_condition(TableOne,TableTwo,JoiningKey) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKey+' = '+TableTwo+'.'+JoiningKey,function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }	
+	
+	
+	
+	
+	
+	
+/*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The three_table_one_parent_no_searchkey_inner_join() is used to conduct
+an inner join query between three tables where one table(TableOne) is the parent 
+of the other two,and there is no WHERE clause
+
+*/	
+	static five_table_inner_join_one_grandparent_two_parents_two_grandchildren_from_one_parent_no_searchkey(TableOne,TableTwo,TableThree,TableFour,TableFive,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKeyOne+' = '+TableTwo+'.'+JoiningKeyOne+' INNER JOIN '+TableThree+' ON '+TableOne+'.'+JoiningKeyTwo+' = '+TableThree+'.'+JoiningKeyTwo+' INNER JOIN '+TableFour+' ON '+TableThree+'.'+JoiningKeyThree+' = '+TableFour+'.'+JoiningKeyThree+' INNER JOIN '+TableFive+' ON '+TableThree+'.'+JoiningKeyFour+' = '+TableFive+'.'+JoiningKeyFour,function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }
+	
+	
+	
+	
+
+	
 
 }

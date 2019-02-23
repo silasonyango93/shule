@@ -195,6 +195,28 @@ module.exports = class ClassSpecificSubjectsController{
            })
 		   
 	 })
+    }	
+	
+	
+	
+	
+	
+	
+	static get_all_class_subjects_by_full_reference(TableTwo,TableThree,TableFour,TableFive,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = ClassSpecificSubjectsModel.get_all_class_subjects_by_full_reference(TableTwo,TableThree,TableFour,TableFive,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
     }		
 	
 	
