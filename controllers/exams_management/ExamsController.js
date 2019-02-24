@@ -179,4 +179,27 @@ module.exports = class ExamsController{
 	
 	
 	
+	
+	
+	
+	static get_all_current_year_configured_exams_by_full_reference(TableTwo,TableThree,TableFour,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = ExamsModel.get_all_current_year_configured_exams_by_full_reference(TableTwo,TableThree,TableFour,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,SearchColumn,SearchValue);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+	
+	
+	
+	
 }

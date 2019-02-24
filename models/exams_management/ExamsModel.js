@@ -175,7 +175,27 @@ module.exports = class ExamsModel{
            reject(err);
            })
      })
-    }		
+    }
+	
+	
+	
+	
+	
+	
+  static get_all_current_year_configured_exams_by_full_reference(TableTwo,TableThree,TableFour,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.four_table_inner_join_one_grandparent_two_parents_one_grandchild_from_one_parent_searchkey_on_prolific_parent(TableName,TableTwo,TableThree,TableFour,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,SearchColumn,SearchValue);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }	
 	
 	
 	

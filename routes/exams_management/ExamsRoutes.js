@@ -297,6 +297,40 @@ router.post('/exams_user_specific_query',urlencodedParser,function(request,respo
            })
 
    });
+   
+   
+   
+   
+   
+   
+   
+   
+router.post('/get_all_current_year_configured_exams_by_full_reference',urlencodedParser,function(request,response){
+	
+    var TableTwo=request.body.TableTwo;
+    var TableThree=request.body.TableThree;
+	var TableFour=request.body.TableFour;
+	var JoiningKeyOne=request.body.JoiningKeyOne;
+	var JoiningKeyTwo=request.body.JoiningKeyTwo;
+    var JoiningKeyThree=request.body.JoiningKeyThree;
+	var SearchColumn=request.body.SearchColumn;
+	var SearchValue=request.body.SearchValue;
+	
+	
+    
+    var myPromise = ExamsController.get_all_current_year_configured_exams_by_full_reference(TableTwo,TableThree,TableFour,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,SearchColumn,SearchValue);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });   
 
 
 

@@ -439,9 +439,9 @@ with no WHERE clause(No condition)
 	
 /*SON/2018-11-06 00:29 - DEVELOPMENT
 	
-The three_table_one_parent_no_searchkey_inner_join() is used to conduct
-an inner join query between three tables where one table(TableOne) is the parent 
-of the other two,and there is no WHERE clause
+The five_table_inner_join_one_grandparent_two_parents_two_grandchildren_from_one_parent_no_searchkey() is used to conduct
+an inner join query between five  tables where one table(TableOne) is the Grandparent 
+of the other two parents,One parent has two children while the other is barren,and there is no WHERE clause
 
 */	
 	static five_table_inner_join_one_grandparent_two_parents_two_grandchildren_from_one_parent_no_searchkey(TableOne,TableTwo,TableThree,TableFour,TableFive,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour) {
@@ -458,7 +458,36 @@ of the other two,and there is no WHERE clause
 	})
 
    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+/*SON/2018-11-06 00:29 - DEVELOPMENT
 	
+The four_table_inner_join_one_grandparent_two_parents_one_grandchild_from_one_parent_searchkey_on_prolific_parent() is used to conduct
+an inner join query between four  tables where one table(TableOne) is the Grandparent 
+of the other two parents,One parent has one child while the other is barren,and there is a WHERE clause on the prolific parent
+
+*/	
+	static four_table_inner_join_one_grandparent_two_parents_one_grandchild_from_one_parent_searchkey_on_prolific_parent(TableOne,TableTwo,TableThree,TableFour,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,SearchColumn,SearchValue) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKeyOne+' = '+TableTwo+'.'+JoiningKeyOne+' INNER JOIN '+TableThree+' ON '+TableOne+'.'+JoiningKeyTwo+' = '+TableThree+'.'+JoiningKeyTwo+' INNER JOIN '+TableFour+' ON '+TableThree+'.'+JoiningKeyThree+' = '+TableFour+'.'+JoiningKeyThree+' WHERE '+TableThree+'.'+SearchColumn+'= '+ mysql.escape(SearchValue),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }	
 	
 	
 	
