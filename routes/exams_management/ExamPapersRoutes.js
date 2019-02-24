@@ -302,6 +302,42 @@ router.post('/exam_papers_user_specific_query',urlencodedParser,function(request
            })
 
    });
+   
+   
+   
+   
+   
+   
+   
+   
+router.post('/innerjoin_classSpecifSubjects_with_ExamPapers',urlencodedParser,function(request,response){
+	
+    var TableOne=request.body.TableOne;
+    
+    var JoiningKey=request.body.JoiningKey;
+	
+	var SearchColumn=request.body.SearchColumn;
+	
+	var SearchValue=request.body.SearchValue;
+	
+	
+    
+    var myPromise = ExamPapersController.innerjoin_classSpecifSubjects_with_ExamPapers(TableOne,JoiningKey,SearchColumn,SearchValue);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });   
+   
+   
+   
 
 
 

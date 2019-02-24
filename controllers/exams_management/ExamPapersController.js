@@ -179,4 +179,27 @@ module.exports = class ExamPapersController{
 	
 	
 	
+	
+	static innerjoin_classSpecifSubjects_with_ExamPapers(TableOne,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = ExamPapersModel.innerjoin_classSpecifSubjects_with_ExamPapers(TableOne,JoiningKey,SearchColumn,SearchValue);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+	
+	
+	
+	
+	
+	
 }

@@ -33,7 +33,7 @@ router.use(function timeLog(req, res, next) {
 			AdmissionNo:request.body.AdmissionNo,
 			ExamPaperId:request.body.ExamPaperId,
 			Marks:request.body.Marks,
-			Grade:request.body.Grade
+			IsMarkSubmited:request.body.IsMarkSubmited
 			
 				
         };

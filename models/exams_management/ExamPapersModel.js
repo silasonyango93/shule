@@ -175,7 +175,28 @@ module.exports = class ExamPapersModel{
            reject(err);
            })
      })
+    }	
+	
+	
+	
+	
+	
+  static innerjoin_classSpecifSubjects_with_ExamPapers(TableOne,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.inverted_two_table_inner_join(TableOne,TableName,JoiningKey,SearchColumn,SearchValue);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
     }		
+	
+	
 	
 	
 	

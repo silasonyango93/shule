@@ -277,6 +277,39 @@ an inner join query between two tables
 	})
 
    }
+   
+   
+   
+   
+   
+   
+/*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The two_table_inner_join() is used to conduct
+an inner join query between two tables
+
+*/	
+	static inverted_two_table_inner_join(TableOne,TableTwo,JoiningKey,SearchColumn,SearchValue) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKey+' = '+TableTwo+'.'+JoiningKey+' WHERE '+TableOne+'.'+SearchColumn+'= '+ mysql.escape(SearchValue),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }   
+   
+   
+   
+   
+   
+   
+   
 	
 	
 	
