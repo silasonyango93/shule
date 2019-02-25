@@ -116,6 +116,46 @@ your result
 	
 	
 	
+	
+	
+	
+	
+/*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The selectSpecific() is to select specific a
+record(s) on the table depending on the 
+arguments you pass to it.Pass it the table 
+name and a callback function to retrieve back
+your result
+
+*/
+	static selectSpecific_with_two_AND_searchkeys(tableName,ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo) {
+
+     return new Promise(function(resolve, reject) {
+        var sql = 'SELECT * FROM '+tableName+' WHERE '+ColumnNameOne+' = '+ mysql.escape(ValueOne)+' AND '+ColumnNameTwo+' = '+ mysql.escape(ValueTwo);
+        con.query(sql, function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        var returned_value_=result;
+                        resolve(returned_value_);
+                    }
+
+        });
+		 
+	})
+
+
+    }	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 /*SON/2018-11-06 00:29 - DEVELOPMENT
 	
 The batch_update() makes a similar update on all
@@ -277,6 +317,38 @@ an inner join query between two tables
 	})
 
    }
+   
+   
+   
+   
+   
+   
+   
+/*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The two_table_inner_join() is used to conduct
+an inner join query between two tables
+
+*/	
+	static two_table_inner_join_two_AND_searchkeys(TableOne,TableTwo,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKey+' = '+TableTwo+'.'+JoiningKey+' WHERE '+TableTwo+'.'+SearchColumnOne+'= '+ mysql.escape(SearchValueOne)+ ' AND '+TableTwo+'.'+SearchColumnTwo+'= '+ mysql.escape(SearchValueTwo),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }   
+   
+   
+   
+   
+   
    
    
    

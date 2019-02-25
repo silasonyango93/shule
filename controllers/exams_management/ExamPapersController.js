@@ -195,11 +195,39 @@ module.exports = class ExamPapersController{
            })
 		   
 	 })
-    }		
+    }	
 	
 	
 	
 	
+	
+	
+	
+	static get_a_classSpecicSubject_exam_paper_for_a_specific_exam(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = ExamPapersModel.get_a_classSpecicSubject_exam_paper_for_a_specific_exam(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }	
+	
+	
+	
+	
+	
+	
+	
+	
+
 	
 	
 }

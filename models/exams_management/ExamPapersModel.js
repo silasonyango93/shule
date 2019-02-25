@@ -194,12 +194,40 @@ module.exports = class ExamPapersModel{
            reject(err);
            })
      })
+    }	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  static get_a_classSpecicSubject_exam_paper_for_a_specific_exam(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.selectSpecific_with_two_AND_searchkeys(TableName,ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
     }		
 	
 	
 	
 	
 	
+	
+	
+	
+	
+
 	
 	
 }

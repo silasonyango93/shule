@@ -274,6 +274,44 @@ router.post('/specific_student_exam_papers_user_specific_query',urlencodedParser
            })
 
    });
+   
+   
+   
+   
+   
+   
+   
+   
+router.post('/get_student_exam_papers_for_a_particular_exam_paper',urlencodedParser,function(request,response){
+	
+    var TableOne=request.body.TableOne;
+    
+    var JoiningKey=request.body.JoiningKey;
+	
+	var SearchColumn=request.body.SearchColumn;
+	
+	var SearchValue=request.body.SearchValue;
+	
+	
+    
+    var myPromise = SpecificStudentExamPapersController.get_student_exam_papers_for_a_particular_exam_paper(TableOne,JoiningKey,SearchColumn,SearchValue);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+		   
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });   
+   
+   
+   
+   
 
 
 

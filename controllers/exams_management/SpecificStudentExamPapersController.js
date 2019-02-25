@@ -179,4 +179,30 @@ module.exports = class SpecificStudentExamPapersController{
 	
 	
 	
+	
+	
+	
+	
+	static get_student_exam_papers_for_a_particular_exam_paper(TableOne,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = SpecificStudentExamPapersModel.get_student_exam_papers_for_a_particular_exam_paper(TableOne,JoiningKey,SearchColumn,SearchValue);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+	
+	
+	
+	
+	
+	
 }

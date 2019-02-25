@@ -175,7 +175,28 @@ module.exports = class SpecificStudentExamPapersModel{
            reject(err);
            })
      })
+    }	
+	
+	
+	
+	
+	
+  static get_student_exam_papers_for_a_particular_exam_paper(TableOne,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.two_table_inner_join(TableOne,TableName,JoiningKey,SearchColumn,SearchValue);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
     }		
+	
+	
 	
 	
 	
