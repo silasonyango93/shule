@@ -175,6 +175,27 @@ module.exports = class TeachersClassSpecificSubjectsModel{
            reject(err);
            })
      })
+    }	
+	
+	
+	
+	
+	
+	
+	
+  static get_a_teachers_specific_subjects_by_full_reference(TableTwo,TableThree,TableFour,TableFive,TableSix,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour,JoiningKeyFive,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.one_grandparent_one_parent_two_children_two_grandchildren_from_one_child(TableName,TableTwo,TableThree,TableFour,TableFive,TableSix,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour,JoiningKeyFive,SearchColumn,SearchValue);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
     }		
 	
 	

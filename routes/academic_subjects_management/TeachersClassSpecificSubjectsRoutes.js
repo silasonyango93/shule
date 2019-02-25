@@ -291,6 +291,49 @@ router.post('/teachers_class_specific_subjects_user_specific_query',urlencodedPa
            })
 
    });
+   
+   
+   
+   
+   
+   
+   
+   
+
+
+router.post('/get_a_teachers_specific_subjects_by_full_reference',urlencodedParser,function(request,response){
+	
+    var JoiningKeyOne=request.body.JoiningKeyOne;
+    var TableTwo=request.body.TableTwo;
+	var JoiningKeyTwo=request.body.JoiningKeyTwo;
+	var TableThree=request.body.TableThree;
+	var JoiningKeyThree=request.body.JoiningKeyThree;
+    var TableFour=request.body.TableFour;
+	var JoiningKeyFour=request.body.JoiningKeyFour;
+	var TableFive=request.body.TableFive;
+	var JoiningKeyFive=request.body.JoiningKeyFive;
+    var TableSix=request.body.TableSix;
+	var SearchColumn=request.body.SearchColumn;
+	var SearchValue=request.body.SearchValue;
+	
+	
+    
+    var myPromise = TeachersClassSpecificSubjectsController.get_a_teachers_specific_subjects_by_full_reference(TableTwo,TableThree,TableFour,TableFive,TableSix,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour,JoiningKeyFive,SearchColumn,SearchValue);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });
+   
+   
+   
 
 
 

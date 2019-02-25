@@ -521,6 +521,33 @@ of the other two parents,One parent has one child while the other is barren,and 
 	})
 
    }	
+   
+   
+   
+   
+   
+   
+/*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The one_grandparent_one_parent_two_children_two_grandchildren_from_one_child() is used to conduct
+an inner join query between six  tables, one grandParent(TableOne), one parent(TableTwo),two children(table Three and four)
+and two grandchildren(Tables five and six) from one child(TableFour)
+
+*/	
+	static one_grandparent_one_parent_two_children_two_grandchildren_from_one_child(TableOne,TableTwo,TableThree,TableFour,TableFive,TableSix,JoiningKeyOne,JoiningKeyTwo,JoiningKeyThree,JoiningKeyFour,JoiningKeyFive,SearchColumn,SearchValue) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKeyOne+' = '+TableTwo+'.'+JoiningKeyOne+' INNER JOIN '+TableThree+' ON '+TableTwo+'.'+JoiningKeyTwo+' = '+TableThree+'.'+JoiningKeyTwo+' INNER JOIN '+TableFour+' ON '+TableTwo+'.'+JoiningKeyThree+' = '+TableFour+'.'+JoiningKeyThree+' INNER JOIN '+TableFive+' ON '+TableFour+'.'+JoiningKeyFour+' = '+TableFive+'.'+JoiningKeyFour+' INNER JOIN '+TableSix+' ON '+TableFour+'.'+JoiningKeyFive+' = '+TableSix+'.'+JoiningKeyFive+' WHERE '+TableOne+'.'+SearchColumn+'= '+ mysql.escape(SearchValue),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }	
 	
 	
 	
