@@ -31,7 +31,6 @@ router.use(function timeLog(req, res, next) {
          
 		    
 			
-		
 			DepartmentTypeId:request.body.DepartmentTypeId,
 			DepartmentName:request.body.DepartmentName,
 			DepartmentDescription:request.body.DepartmentDescription,

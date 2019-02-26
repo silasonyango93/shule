@@ -125,7 +125,7 @@ router.use(function timeLog(req, res, next) {
 			AdmissionNo:request.body.AdmissionNo,
 			ExamPaperId:request.body.ExamPaperId,
 			Marks:request.body.Marks,
-			Grade:request.body.Grade
+			IsMarkSubmited:request.body.IsMarkSubmited
 			
 				
         };
@@ -163,10 +163,9 @@ router.use(function timeLog(req, res, next) {
           var	jsonObject_ = {
          
 			
-			AdmissionNo:request.body.AdmissionNo,
-			ExamPaperId:request.body.ExamPaperId,
+			
 			Marks:request.body.Marks,
-			Grade:request.body.Grade
+			
 			
 				
         };
@@ -308,6 +307,49 @@ router.post('/get_student_exam_papers_for_a_particular_exam_paper',urlencodedPar
            })
 
    });   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+router.post('/update_student_specific_exam_papers_marks',urlencodedParser,function(request,response){
+	
+    var	JsonObject = {
+        
+			Marks:request.body.Marks,
+				
+        };
+    
+    var ColumnOne=request.body.ColumnOne;
+	
+	var ValueOne=request.body.ValueOne;
+	
+	var ColumnTwo=request.body.ColumnTwo;
+	
+	var ValueTwo=request.body.ValueTwo;
+	
+	
+    
+    var myPromise = SpecificStudentExamPapersController.update_student_specific_exam_papers_marks(JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+		   
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });      
+   
    
    
    

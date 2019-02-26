@@ -205,4 +205,34 @@ module.exports = class SpecificStudentExamPapersController{
 	
 	
 	
+	
+	static update_student_specific_exam_papers_marks(JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = SpecificStudentExamPapersModel.update_student_specific_exam_papers_marks(JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -194,7 +194,31 @@ module.exports = class SpecificStudentExamPapersModel{
            reject(err);
            })
      })
-    }		
+    }	
+	
+	
+	
+	
+	
+
+  static update_student_specific_exam_papers_marks(JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.individual_update_with_two_AND_searchkeys(TableName,JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }	
+	
+	
+	
+	
 	
 	
 	
