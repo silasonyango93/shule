@@ -323,6 +323,15 @@ app.use(require('./routes/finance_and_fee_management/AnnualPayableFeeRoutes.js')
 
 
 
+/*SON/2019-1-04 11:50 - DEVELOPMENT : Start Finance and Fee Management*/
+
+app.use(require('./routes/system_files/CurriculumConfigRoutes.js'));
+
+/*SON/2019-1-04 11:50 - DEVELOPMENT : End Finance and Fee Management*/
+
+
+
+
 
 
 

@@ -231,6 +231,25 @@ module.exports = class SpecificStudentExamPapersController{
 	
 	
 	
+	static get_a_specific_student_specific_subject_results(AdmissionNo,FieldId){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = SpecificStudentExamPapersModel.get_a_specific_student_specific_subject_results(AdmissionNo,FieldId);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+	
+	
+	
 	
 	
 	

@@ -1,5 +1,5 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the "specific_student_exam_papers" table's model
+This class is the "curriculum_config_table" table's model
 class.It receives any CRUD operation 
 requests and hands the over to class 
 ModelMaster.It creates an instance of class
@@ -10,10 +10,10 @@ functions.
 
 
 const ModelMaster=require('../ModelMaster.js');
-const TableName="specific_student_exam_papers";
+const TableName="curriculum_config_table";
 
 
-module.exports = class SpecificStudentExamPapersModel{
+module.exports = class CurriculumConfigModel{
 
 
     constructor(){                                                                                                                                                                                                                                                             
@@ -175,75 +175,7 @@ module.exports = class SpecificStudentExamPapersModel{
            reject(err);
            })
      })
-    }	
-	
-	
-	
-	
-	
-  static get_student_exam_papers_for_a_particular_exam_paper(TableOne,JoiningKey,SearchColumn,SearchValue){
-	   return new Promise(function(resolve, reject) {
-        
-
-        
-		var myPromise = ModelMaster.two_table_inner_join(TableOne,TableName,JoiningKey,SearchColumn,SearchValue);
-		   myPromise.then(function(result) {
-        
-           resolve(result);
-           }, function(err) {
-           reject(err);
-           })
-     })
-    }	
-	
-	
-	
-	
-	
-
-  static update_student_specific_exam_papers_marks(JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo){
-	   return new Promise(function(resolve, reject) {
-        
-
-        
-		var myPromise = ModelMaster.individual_update_with_two_AND_searchkeys(TableName,JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
-		   myPromise.then(function(result) {
-        
-           resolve(result);
-           }, function(err) {
-           reject(err);
-           })
-     })
-    }	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-  static get_a_specific_student_specific_subject_results(AdmissionNo,FieldId){
-	   return new Promise(function(resolve, reject) {
-        
-
-        
-		var myPromise = ModelMaster.getting_a_results_table_row(AdmissionNo,FieldId);
-		   myPromise.then(function(result) {
-        
-           resolve(result);
-           }, function(err) {
-           reject(err);
-           })
-     })
-    }	
-	
-	
-	
-	
-	
-	
+    }		
 	
 	
 	

@@ -665,7 +665,38 @@ and two grandchildren(Tables five and six) from one child(TableFour)
 		
 	})
 
-   }	
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   /*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The one_grandparent_one_parent_two_children_two_grandchildren_from_one_child() is used to conduct
+an inner join query between six  tables, one grandParent(TableOne), one parent(TableTwo),two children(table Three and four)
+and two grandchildren(Tables five and six) from one child(TableFour)
+
+*/	
+	static getting_a_results_table_row(AdmissionNo,FieldId) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM fields_ INNER JOIN subjects ON fields_.fieldId=subjects.FieldId INNER JOIN class_specific_subjects ON subjects.SubjectId=class_specific_subjects.SubjectId INNER JOIN exam_papers ON class_specific_subjects.ClassSpecificSubjectId=exam_papers.ClassSpecificSubjectId INNER JOIN specific_student_exam_papers ON exam_papers.ExamPaperId=specific_student_exam_papers.ExamPaperId INNER JOIN students ON specific_student_exam_papers.AdmissionNo=students.AdmissionNo WHERE students.AdmissionNo='+AdmissionNo+' AND fields_.fieldId='+FieldId,function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }
 	
 	
 	

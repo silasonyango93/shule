@@ -354,6 +354,39 @@ router.post('/update_student_specific_exam_papers_marks',urlencodedParser,functi
    
    
    
+   
+   
+   
+   
+router.post('/get_a_specific_student_specific_subject_results',urlencodedParser,function(request,response){
+	
+    
+    var AdmissionNo=request.body.AdmissionNo;
+	
+	var FieldId=request.body.FieldId;
+	
+	
+    
+    var myPromise = SpecificStudentExamPapersController.get_a_specific_student_specific_subject_results(AdmissionNo,FieldId);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+		   
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });         
+   
+   
+   
+   
+   
+   
 
 
 
