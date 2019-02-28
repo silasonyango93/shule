@@ -35,7 +35,7 @@ router.use(function timeLog(req, res, next) {
 			DepartmentId:request.body.DepartmentId,
 			FieldName:request.body.FieldName,
 			FieldDescription:request.body.FieldDescription,
-			FieldRefNo:request.body.FieldRefNo
+			GradeRef:request.body.GradeRef
 			
 			
 						 

@@ -273,6 +273,43 @@ router.post('/academic_class_levels_user_specific_query',urlencodedParser,functi
            })
 
    });
+   
+   
+   
+   
+   
+   
+   
+   
+router.post('/get_academic_class_level_of_a_particular_class',urlencodedParser,function(request,response){
+	
+    var TableTwo=request.body.TableTwo;
+    
+    var JoiningKey=request.body.JoiningKey;
+	
+	var SearchColumn=request.body.SearchColumn;
+	
+	var SearchValue=request.body.SearchValue;
+	
+	
+    
+    var myPromise = AcademicClassLevelsController.get_academic_class_level_of_a_particular_class(TableTwo,JoiningKey,SearchColumn,SearchValue);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });   
+   
+   
+   
+   
 
 
 

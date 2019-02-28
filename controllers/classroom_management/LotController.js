@@ -1,17 +1,17 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the field_grade_configuration's controller class.
-It receives calls from the "FieldGradeConfigurationRoutes" class and
-passes the calls down to the "FieldGradeConfigurationModel" class
+This class is the lot's controller class.
+It receives calls from the "LotRoutes" class and
+passes the calls down to the "LotModel" class
 */
 
 
 
-const FieldGradeConfigurationModel = require('../../models/exams_management/FieldGradeConfigurationModel.js');
+const LotModel = require('../../models/classroom_management/LotModel.js');
 
 
 
 
-module.exports = class FieldGradeConfigurationController{
+module.exports = class LotController{
     constructor(){
 
     }
@@ -21,7 +21,7 @@ module.exports = class FieldGradeConfigurationController{
    static insert(jsonObject_){
 	 return new Promise(function(resolve, reject) {  
      
-     var myPromise = FieldGradeConfigurationModel.insert(jsonObject_);
+     var myPromise = LotModel.insert(jsonObject_);
 		  
 		   
 		   myPromise.then(function(result) {
@@ -41,7 +41,7 @@ module.exports = class FieldGradeConfigurationController{
    static get_all_records(){
 	   return new Promise(function(resolve, reject) {  
         
-        var myPromise = FieldGradeConfigurationModel.get_all_records();
+        var myPromise = LotModel.get_all_records();
 		   
 		   
 		   myPromise.then(function(result) {
@@ -61,7 +61,7 @@ module.exports = class FieldGradeConfigurationController{
    static get_specific_records(ColumnName,value_){
 	   return new Promise(function(resolve, reject) {  
         
-        var myPromise = FieldGradeConfigurationModel.get_specific_records(ColumnName,value_);
+        var myPromise = LotModel.get_specific_records(ColumnName,value_);
 		   
 		   
 		   myPromise.then(function(result) {
@@ -80,7 +80,7 @@ module.exports = class FieldGradeConfigurationController{
 	   return new Promise(function(resolve, reject) {  
        
         
-		var myPromise = FieldGradeConfigurationModel.batch_update(jsonObject_);
+		var myPromise = LotModel.batch_update(jsonObject_);
 		   
 		   
 		   myPromise.then(function(result) {
@@ -101,7 +101,7 @@ module.exports = class FieldGradeConfigurationController{
 	   return new Promise(function(resolve, reject) { 
        
         
-		var myPromise = FieldGradeConfigurationModel.individual_record_update(ColumnName,value_,jsonObject_);
+		var myPromise = LotModel.individual_record_update(ColumnName,value_,jsonObject_);
 		   
 		   
 		   myPromise.then(function(result) {
@@ -122,7 +122,7 @@ module.exports = class FieldGradeConfigurationController{
 	   return new Promise(function(resolve, reject) { 
         
         
-		var myPromise = FieldGradeConfigurationModel.delete_user_specic_record(ColumnName,value_,UserIdColumnName,UserId);
+		var myPromise = LotModel.delete_user_specic_record(ColumnName,value_,UserIdColumnName,UserId);
 		    
 		   
 		   myPromise.then(function(result) {
@@ -141,7 +141,7 @@ module.exports = class FieldGradeConfigurationController{
 	   return new Promise(function(resolve, reject) { 
         
         
-		var myPromise = FieldGradeConfigurationModel.get_number_of_records(ColumnName,value_);
+		var myPromise = LotModel.get_number_of_records(ColumnName,value_);
 		    
 		   
 		   myPromise.then(function(result) {
@@ -163,7 +163,30 @@ module.exports = class FieldGradeConfigurationController{
 	   return new Promise(function(resolve, reject) { 
         
         
-		var myPromise = FieldGradeConfigurationModel.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
+		var myPromise = LotModel.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }
+	
+	
+	
+	
+	
+	
+	
+	static get_all_lots_by_full_reference(TableOne,JoiningKey){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = LotModel.get_all_lots_by_full_reference(TableOne,JoiningKey);
 		    
 		   
 		   myPromise.then(function(result) {
@@ -175,29 +198,6 @@ module.exports = class FieldGradeConfigurationController{
 		   
 	 })
     }	
-	
-	
-	
-	
-	
-	
-	
-	static get_grade(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo,ValueThree,ColumnThree,ColumnFour){
-	   return new Promise(function(resolve, reject) { 
-        
-        
-		var myPromise = FieldGradeConfigurationModel.get_grade(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo,ValueThree,ColumnThree,ColumnFour);
-		    
-		   
-		   myPromise.then(function(result) {
-        
-           resolve(result);
-           }, function(err) {
-           reject(err);
-           })
-		   
-	 })
-    }		
 	
 	
 	

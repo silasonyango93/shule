@@ -34,6 +34,7 @@ router.use(function timeLog(req, res, next) {
 			
 			AcademicClassLevelId:request.body.AcademicClassLevelId,
 			ClassStreamId:request.body.ClassStreamId,
+			LotId:request.body.LotId,
 			ClassNickName:request.body.ClassNickName,
 			ClassDescription:request.body.ClassDescription,
 			PhysicalAddress:request.body.PhysicalAddress,

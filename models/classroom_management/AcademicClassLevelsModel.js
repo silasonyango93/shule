@@ -181,4 +181,26 @@ module.exports = class AcademicClassLevelsModel{
 	
 	
 	
+	
+  static get_academic_class_level_of_a_particular_class(TableTwo,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.two_table_inner_join(TableName,TableTwo,JoiningKey,SearchColumn,SearchValue);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }		
+	
+	
+	
+	
+	
+	
+	
 }

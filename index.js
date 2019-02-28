@@ -77,6 +77,8 @@ app.use(require('./routes/classroom_management/AcademicClassLevelsRoutes.js'));
 app.use(require('./routes/classroom_management/ClassStreamsRoutes.js'));
 app.use(require('./routes/classroom_management/ClassesRoutes.js'));
 app.use(require('./routes/classroom_management/ClassPrefectRelationshipRoutes.js'));
+app.use(require('./routes/classroom_management/LotDescriptionRoutes.js'));
+app.use(require('./routes/classroom_management/LotRoutes.js'));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : End Classroom Management*/
 
@@ -225,6 +227,8 @@ app.use(require('./routes/exams_management/SpecificStudentExamPapersRoutes.js'))
 app.use(require('./routes/exams_management/SpecificStudentExamPapersInformationTypesRoutes.js'));
 app.use(require('./routes/exams_management/SpecificStudentExamPapersInformationRoutes.js'));
 app.use(require('./routes/exams_management/FieldGradeConfigurationRoutes.js'));
+app.use(require('./routes/exams_management/PrimaryResultsTableRoutes.js'));
+app.use(require('./routes/exams_management/SecondaryResultsTableRoutes.js'));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start Exams Management*/
 

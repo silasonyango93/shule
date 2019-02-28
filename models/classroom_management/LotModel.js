@@ -1,5 +1,5 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the "field_grade_configuration" table's model
+This class is the "lot" table's model
 class.It receives any CRUD operation 
 requests and hands the over to class 
 ModelMaster.It creates an instance of class
@@ -10,10 +10,10 @@ functions.
 
 
 const ModelMaster=require('../ModelMaster.js');
-const TableName="field_grade_configuration";
+const TableName="lot";
 
 
-module.exports = class FieldGradeConfigurationModel{
+module.exports = class LotModel{
 
 
     constructor(){                                                                                                                                                                                                                                                             
@@ -175,21 +175,17 @@ module.exports = class FieldGradeConfigurationModel{
            reject(err);
            })
      })
-    }	
+    }
 	
 	
 	
 	
-	
-	
-	
-	
-  static get_grade(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo,ValueThree,ColumnThree,ColumnFour){
+  static get_all_classes_by_full_reference(TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo){
 	   return new Promise(function(resolve, reject) {
         
 
         
-		var myPromise = ModelMaster.selectSpecific_with_three_AND_searchkeys_and_bounds(TableName,ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo,ValueThree,ColumnThree,ColumnFour);
+		var myPromise = ModelMaster.three_table_one_parent_no_searchkey_inner_join(TableName,TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo);
 		   myPromise.then(function(result) {
         
            resolve(result);
@@ -198,6 +194,32 @@ module.exports = class FieldGradeConfigurationModel{
            })
      })
     }	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  static get_all_lots_by_full_reference(TableOne,JoiningKey){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.two_table_inner_join_with_no_condition(TableOne,TableName,JoiningKey);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }		
+	
+	
+	
 	
 	
 	

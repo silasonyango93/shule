@@ -174,7 +174,35 @@ module.exports = class AcademicClassLevelsController{
            })
 		   
 	 })
+    }
+	
+	
+	
+	
+	
+	
+	
+	static get_academic_class_level_of_a_particular_class(TableTwo,JoiningKey,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = AcademicClassLevelsModel.get_academic_class_level_of_a_particular_class(TableTwo,JoiningKey,SearchColumn,SearchValue);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
     }	
+	
+	
+	
+	
+	
 	
 	
 	

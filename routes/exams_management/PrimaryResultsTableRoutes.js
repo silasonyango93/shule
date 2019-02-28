@@ -1,8 +1,8 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the field_grade_configuration table's route class.
+This class is the primary_results_table table's route class.
 It is initialized at the "Index.js" and is able to recieve
 calls from the client and passes the calls down to the 
-"FieldGradeConfigurationController" class
+"PrimaryResultsTableController" class
 */
 
 
@@ -11,7 +11,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-const FieldGradeConfigurationController = require('../../controllers/exams_management/FieldGradeConfigurationController.js');
+const PrimaryResultsTableController = require('../../controllers/exams_management/PrimaryResultsTableController.js');
 
 
 
@@ -23,24 +23,34 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/add_field_grade_configuration', urlencodedParser,function(request,response){
+   router.post('/add_primary_results_table', urlencodedParser,function(request,response){
 	   
 	   
 	   
         var	jsonObject_ = {
          
 			
-			FieldId:request.body.FieldId,
-			AcademicClassLevelId:request.body.AcademicClassLevelId,
-			LowerBound:request.body.LowerBound,
-			UpperBound:request.body.UpperBound,
-			Grade:request.body.Grade
+			ExamId:request.body.ExamId,
+			AdmissionNo:request.body.AdmissionNo,
+			MAT:request.body.MAT,
+			MAT_GRADE:request.body.MAT_GRADE,
+			ENG:request.body.ENG,
+			ENG_GRADE:request.body.ENG_GRADE,
+			KIS:request.body.KIS,
+			KIS_GRADE:request.body.KIS_GRADE,
+			SCI:request.body.SCI,
+			SCI_GRADE:request.body.SCI_GRADE,
+			SOC:request.body.SOC,
+			SOC_GRADE:request.body.SOC_GRADE,
+			TOTAL:request.body.TOTAL,
+			MEAN:request.body.MEAN,
+			MEAN_GRADE:request.body.MEAN_GRADE
 			
 				
         };
 	
 	     
-          var myPromise = FieldGradeConfigurationController.insert(jsonObject_);
+          var myPromise = PrimaryResultsTableController.insert(jsonObject_);
 	          
 		   
 		   myPromise.then(function(result) {
@@ -59,9 +69,9 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_all_field_grade_configuration',urlencodedParser,function(request,response){
+   router.post('/get_all_primary_results_table',urlencodedParser,function(request,response){
     
-    var myPromise = FieldGradeConfigurationController.get_all_records();
+    var myPromise = PrimaryResultsTableController.get_all_records();
 	      
 		   
 		   myPromise.then(function(result) {
@@ -83,7 +93,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_specific_field_grade_configuration',urlencodedParser,function(request,response){
+   router.post('/get_specific_primary_results_table',urlencodedParser,function(request,response){
         var mKey=request.body.column_name;
         //var mValue=parseInt(request.query.search_value, 10);
         var mValue=request.body.search_value;
@@ -91,7 +101,7 @@ router.use(function timeLog(req, res, next) {
         
 
 
-        var myPromise = FieldGradeConfigurationController.get_specific_records(mKey,mValue);
+        var myPromise = PrimaryResultsTableController.get_specific_records(mKey,mValue);
 	        
 		   
 		   myPromise.then(function(result) {
@@ -117,24 +127,34 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/update_field_grade_configuration',urlencodedParser,function(request,response){
+   router.post('/update_primary_results_table',urlencodedParser,function(request,response){
 	   
 	  
 	   var	jsonObject_ = {
          
 			
-			FieldId:request.body.FieldId,
-			AcademicClassLevelId:request.body.AcademicClassLevelId,
-			LowerBound:request.body.LowerBound,
-			UpperBound:request.body.UpperBound,
-			Grade:request.body.Grade
+			ExamId:request.body.ExamId,
+			AdmissionNo:request.body.AdmissionNo,
+			MAT:request.body.MAT,
+			MAT_GRADE:request.body.MAT_GRADE,
+			ENG:request.body.ENG,
+			ENG_GRADE:request.body.ENG_GRADE,
+			KIS:request.body.KIS,
+			KIS_GRADE:request.body.KIS_GRADE,
+			SCI:request.body.SCI,
+			SCI_GRADE:request.body.SCI_GRADE,
+			SOC:request.body.SOC,
+			SOC_GRADE:request.body.SOC_GRADE,
+			TOTAL:request.body.TOTAL,
+			MEAN:request.body.MEAN,
+			MEAN_GRADE:request.body.MEAN_GRADE
 			
 				
         };
 	
 	
     
-    var myPromise = FieldGradeConfigurationController.batch_update(jsonObject_);
+    var myPromise = PrimaryResultsTableController.batch_update(jsonObject_);
 	   
 		   
 		   myPromise.then(function(result) {
@@ -155,7 +175,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/update_individual_field_grade_configuration',urlencodedParser,function(request,response){
+   router.post('/update_individual_primary_results_table',urlencodedParser,function(request,response){
 	
           var column_name=request.body.ColumnName;
           var value_=request.body.ColumnValue;
@@ -165,17 +185,27 @@ router.use(function timeLog(req, res, next) {
           var	jsonObject_ = {
          
 			
-			FieldId:request.body.FieldId,
-			AcademicClassLevelId:request.body.AcademicClassLevelId,
-			LowerBound:request.body.LowerBound,
-			UpperBound:request.body.UpperBound,
-			Grade:request.body.Grade
+			ExamId:request.body.ExamId,
+			AdmissionNo:request.body.AdmissionNo,
+			MAT:request.body.MAT,
+			MAT_GRADE:request.body.MAT_GRADE,
+			ENG:request.body.ENG,
+			ENG_GRADE:request.body.ENG_GRADE,
+			KIS:request.body.KIS,
+			KIS_GRADE:request.body.KIS_GRADE,
+			SCI:request.body.SCI,
+			SCI_GRADE:request.body.SCI_GRADE,
+			SOC:request.body.SOC,
+			SOC_GRADE:request.body.SOC_GRADE,
+			TOTAL:request.body.TOTAL,
+			MEAN:request.body.MEAN,
+			MEAN_GRADE:request.body.MEAN_GRADE
 			
 				
         };
 	
          
-         var myPromise = FieldGradeConfigurationController.individual_record_update(column_name,value_,jsonObject_);
+         var myPromise = PrimaryResultsTableController.individual_record_update(column_name,value_,jsonObject_);
 	         	        
 		   
 		   myPromise.then(function(result) {
@@ -194,7 +224,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/delete_individual_field_grade_configuration',urlencodedParser,function(request,response){
+   router.post('/delete_individual_primary_results_table',urlencodedParser,function(request,response){
 	
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -205,7 +235,7 @@ router.use(function timeLog(req, res, next) {
 	var UserId=request.body.UserId;
 	
     
-    var myPromise = FieldGradeConfigurationController.delete_user_specic_record(column_name,value_,UserIdColumnName,UserId);
+    var myPromise = PrimaryResultsTableController.delete_user_specic_record(column_name,value_,UserIdColumnName,UserId);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -224,7 +254,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-   router.post('/get_number_of_field_grade_configuration_records',urlencodedParser,function(request,response){
+   router.post('/get_number_of_primary_results_table_records',urlencodedParser,function(request,response){
 	
     var column_name=request.body.column_name;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -232,7 +262,7 @@ router.use(function timeLog(req, res, next) {
 	
 	
     
-    var myPromise = FieldGradeConfigurationController.get_number_of_records(column_name,value_);
+    var myPromise = PrimaryResultsTableController.get_number_of_records(column_name,value_);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -252,7 +282,7 @@ router.use(function timeLog(req, res, next) {
 
 
 
-router.post('/field_grade_configuration_user_specific_query',urlencodedParser,function(request,response){
+router.post('/primary_results_table_user_specific_query',urlencodedParser,function(request,response){
 	
     var ColumnName=request.body.ColumnName;
     //var mValue=parseInt(request.body.search_value, 10);
@@ -264,7 +294,7 @@ router.post('/field_grade_configuration_user_specific_query',urlencodedParser,fu
 	
 	
     
-    var myPromise = FieldGradeConfigurationController.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
+    var myPromise = PrimaryResultsTableController.user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId);
 	      	        
 		   
 		   myPromise.then(function(result) {
@@ -284,21 +314,28 @@ router.post('/field_grade_configuration_user_specific_query',urlencodedParser,fu
    
    
    
-   
-   
-router.post('/get_grade',urlencodedParser,function(request,response){
+router.post('/update_a_field_with_its_grade',urlencodedParser,function(request,response){
 	
-    var ColumnNameOne=request.body.ColumnNameOne;
+	
+	var ColumnOneToBeSet=request.body.ColumnOneToBeSet;
+	
+	var ValueOneToBeSet=request.body.ValueOneToBeSet;
+	
+	var ColumnTwoToBeSet=request.body.ColumnTwoToBeSet;
+	
+	var ValueTwoToBeSet=request.body.ValueTwoToBeSet;
+	
+    var ColumnOne=request.body.ColumnOne;
+    
     var ValueOne=request.body.ValueOne;
-	var ColumnNameTwo=request.body.ColumnNameTwo;
+	
+	var ColumnTwo=request.body.ColumnTwo;
+	
 	var ValueTwo=request.body.ValueTwo;
-	var ValueThree=request.body.ValueThree;
-	var ColumnThree=request.body.ColumnThree;
-	var ColumnFour=request.body.ColumnFour;
 	
 	
     
-    var myPromise = FieldGradeConfigurationController.get_grade(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo,ValueThree,ColumnThree,ColumnFour);
+    var myPromise = PrimaryResultsTableController.update_a_field_with_its_grade(ColumnOneToBeSet,ValueOneToBeSet,ColumnTwoToBeSet,ValueTwoToBeSet,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
 	      	        
 		   
 		   myPromise.then(function(result) {

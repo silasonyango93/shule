@@ -150,7 +150,40 @@ your result
 	
 	
 	
+
+
+/*SON/2018-11-06 00:29 - DEVELOPMENT
 	
+The selectSpecific() is to select specific a
+record(s) on the table depending on the 
+arguments you pass to it.Pass it the table 
+name and a callback function to retrieve back
+your result
+
+*/
+	static selectSpecific_with_three_AND_searchkeys_and_bounds(tableName,ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo,ValueThree,ColumnThree,ColumnFour) {
+
+     return new Promise(function(resolve, reject) {
+        var sql = 'SELECT * FROM '+tableName+' WHERE '+ColumnNameOne+' = '+ mysql.escape(ValueOne)+' AND '+ColumnNameTwo+' = '+ mysql.escape(ValueTwo)+' AND '+ValueThree+' BETWEEN '+ColumnThree+' AND '+ColumnFour;
+        con.query(sql, function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        var returned_value_=result;
+                        resolve(returned_value_);
+                    }
+
+        });
+		 
+	})
+
+
+    }	
+	
+
+
+
+
+
 	
 	
 	
@@ -233,13 +266,13 @@ individual_update() updates a specific record(s).
 individual_update() updates a specific record(s).
 
 */	
-	static individual_update_with_two_AND_searchkeys(TableName,JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo) {
+	static individual_update_with_two_AND_searchkeys(TableName,ColumnOneToBeSet,ValueOneToBeSet,ColumnTwoToBeSet,ValueTwoToBeSet,ColumnOne,ValueOne,ColumnTwo,ValueTwo) {
 		
       return new Promise(function(resolve, reject) {
     	
 		
 			
-			con.query('UPDATE ' + TableName + ' SET ? WHERE '+ColumnOne+' = '+ mysql.escape(ValueOne)+' AND '+ColumnTwo+' = '+ mysql.escape(ValueTwo), JsonObject, function (err, result) {
+			con.query('UPDATE ' + TableName + ' SET '+ColumnOneToBeSet+'='+ mysql.escape(ValueOneToBeSet)+','+ColumnTwoToBeSet+'='+ mysql.escape(ValueTwoToBeSet)+' WHERE '+ColumnOne+' = '+ mysql.escape(ValueOne)+' AND '+ColumnTwo+' = '+ mysql.escape(ValueTwo), function (err, result) {
             if (err){reject(err);}
             
 			var returned_value_={success:true, message:"Record updated succesfully."};
@@ -353,6 +386,33 @@ an inner join query between two tables
 	return new Promise(function(resolve, reject) {	
 
         con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKey+' = '+TableTwo+'.'+JoiningKey+' WHERE '+TableTwo+'.'+SearchColumn+'= '+ mysql.escape(SearchValue),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }
+   
+   
+   
+   
+   
+   
+   
+   /*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The two_table_inner_join() is used to conduct
+an inner join query between two tables
+
+*/	
+	static two_table_inner_join_with_no_condition(TableOne,TableTwo,JoiningKey) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM '+TableOne+' INNER JOIN '+TableTwo+' ON '+TableOne+'.'+JoiningKey+' = '+TableTwo+'.'+JoiningKey,function (err, result) {
             if (err){reject(err);}
                    else {
 				        
@@ -686,7 +746,7 @@ and two grandchildren(Tables five and six) from one child(TableFour)
 	static getting_a_results_table_row(AdmissionNo,FieldId) {
 	return new Promise(function(resolve, reject) {	
 
-        con.query('SELECT * FROM fields_ INNER JOIN subjects ON fields_.fieldId=subjects.FieldId INNER JOIN class_specific_subjects ON subjects.SubjectId=class_specific_subjects.SubjectId INNER JOIN exam_papers ON class_specific_subjects.ClassSpecificSubjectId=exam_papers.ClassSpecificSubjectId INNER JOIN specific_student_exam_papers ON exam_papers.ExamPaperId=specific_student_exam_papers.ExamPaperId INNER JOIN students ON specific_student_exam_papers.AdmissionNo=students.AdmissionNo WHERE students.AdmissionNo='+AdmissionNo+' AND fields_.fieldId='+FieldId,function (err, result) {
+        con.query('SELECT * FROM fields_ INNER JOIN subjects ON fields_.fieldId=subjects.FieldId INNER JOIN class_specific_subjects ON subjects.SubjectId=class_specific_subjects.SubjectId INNER JOIN exam_papers ON class_specific_subjects.ClassSpecificSubjectId=exam_papers.ClassSpecificSubjectId INNER JOIN specific_student_exam_papers ON exam_papers.ExamPaperId=specific_student_exam_papers.ExamPaperId INNER JOIN students ON specific_student_exam_papers.AdmissionNo=students.AdmissionNo WHERE students.AdmissionNo='+AdmissionNo+' AND fields_.fieldId= '+ mysql.escape(FieldId),function (err, result) {
             if (err){reject(err);}
                    else {
 				        
