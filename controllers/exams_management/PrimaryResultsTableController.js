@@ -244,8 +244,31 @@ module.exports = class PrimaryResultsTableController{
            })
 		   
 	 })
-    }		
+    }	
 	
+	
+	
+	
+	
+	
+	
+	
+	static get_final_results_for_particular_exam_and_class(TableOne,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = PrimaryResultsTableModel.get_final_results_for_particular_exam_and_class(TableOne,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
 	
 	
 	

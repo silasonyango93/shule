@@ -241,6 +241,32 @@ module.exports = class PrimaryResultsTableModel{
            reject(err);
            })
      })
+    }	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  static get_final_results_for_particular_exam_and_class(TableOne,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.two_table_inner_join_searchKeys_on_each_table(TableOne,TableName,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
     }		
 	
 	

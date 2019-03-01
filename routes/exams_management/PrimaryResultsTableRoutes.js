@@ -428,7 +428,47 @@ router.post('/update_a_row_with_sumtotal_average_and_meangrade',urlencodedParser
    
    
    
-   
+
+
+
+
+
+
+
+router.post('/get_final_results_for_particular_exam_and_class',urlencodedParser,function(request,response){
+	
+	
+	var TableOne=request.body.TableOne;
+	var JoiningKey=request.body.JoiningKey;
+	var SearchColumnOne=request.body.SearchColumnOne;
+	var SearchValueOne=request.body.SearchValueOne;
+	var SearchColumnTwo=request.body.SearchColumnTwo;
+	var SearchValueTwo=request.body.SearchValueTwo;
+	
+	
+	
+	
+    
+    var myPromise = PrimaryResultsTableController.get_final_results_for_particular_exam_and_class(TableOne,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });     
+
+
+
+
+
+
+
    
 
 
