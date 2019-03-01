@@ -229,6 +229,7 @@ app.use(require('./routes/exams_management/SpecificStudentExamPapersInformationR
 app.use(require('./routes/exams_management/FieldGradeConfigurationRoutes.js'));
 app.use(require('./routes/exams_management/PrimaryResultsTableRoutes.js'));
 app.use(require('./routes/exams_management/SecondaryResultsTableRoutes.js'));
+app.use(require('./routes/exams_management/MeanGradeRoutes.js'));
 
 /*SON/2019-1-04 11:50 - DEVELOPMENT : Start Exams Management*/
 

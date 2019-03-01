@@ -1,5 +1,5 @@
 /*SON/2018-11-06 00:29 - DEVELOPMENT
-This class is the "primary_results_table" table's model
+This class is the "mean_grade" table's model
 class.It receives any CRUD operation 
 requests and hands the over to class 
 ModelMaster.It creates an instance of class
@@ -10,10 +10,10 @@ functions.
 
 
 const ModelMaster=require('../ModelMaster.js');
-const TableName="primary_results_table";
+const TableName="mean_grade";
 
 
-module.exports = class PrimaryResultsTableModel{
+module.exports = class MeanGradeModel{
 
 
     constructor(){                                                                                                                                                                                                                                                             
@@ -162,6 +162,8 @@ module.exports = class PrimaryResultsTableModel{
 	
 	
 
+
+
   static user_specific_select_query(ColumnName,value_,UserIdColumnName,UserId){
 	   return new Promise(function(resolve, reject) {
         
@@ -183,12 +185,12 @@ module.exports = class PrimaryResultsTableModel{
 	
 	
 	
-  static update_a_field_with_its_grade(ColumnOneToBeSet,ValueOneToBeSet,ColumnTwoToBeSet,ValueTwoToBeSet,ColumnOne,ValueOne,ColumnTwo,ValueTwo){
+  static select_mean_grade_for_particular_mean_for_particular_class_level(ColumnNameOne,ValueOne,ValueTwo,ColumnTwo,ColumnThree){
 	   return new Promise(function(resolve, reject) {
         
 
         
-		var myPromise = ModelMaster.individual_update_with_two_AND_searchkeys(TableName,ColumnOneToBeSet,ValueOneToBeSet,ColumnTwoToBeSet,ValueTwoToBeSet,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
+		var myPromise = ModelMaster.select_two_searchkeys_and_bounds(TableName,ColumnNameOne,ValueOne,ValueTwo,ColumnTwo,ColumnThree);
 		   myPromise.then(function(result) {
         
            resolve(result);
@@ -200,54 +202,11 @@ module.exports = class PrimaryResultsTableModel{
 	
 	
 	
-	
-	
-	
-	
-	
-	
-  static getAspecifRecordForAspecificStudentAndExam(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo){
-	   return new Promise(function(resolve, reject) {
-        
 
-        
-		var myPromise = ModelMaster.selectSpecific_with_two_AND_searchkeys(TableName,ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo);
-		   myPromise.then(function(result) {
-        
-           resolve(result);
-           }, function(err) {
-           reject(err);
-           })
-     })
-    }	
-	
-	
-	
-	
-	
-	
-	
-	
-  static update_a_row_with_sumtotal_average_and_meangrade(ColumnOneToBeSet,ValueOneToBeSet,ColumnTwoToBeSet,ValueTwoToBeSet,ColumnThreeToBeSet,ValueThreeToBeSet,ColumnOne,ValueOne,ColumnTwo,ValueTwo){
-	   return new Promise(function(resolve, reject) {
-        
 
-        
-		var myPromise = ModelMaster.three_updates_with_two_AND_searchkeys(TableName,ColumnOneToBeSet,ValueOneToBeSet,ColumnTwoToBeSet,ValueTwoToBeSet,ColumnThreeToBeSet,ValueThreeToBeSet,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
-		   myPromise.then(function(result) {
-        
-           resolve(result);
-           }, function(err) {
-           reject(err);
-           })
-     })
-    }		
+
 	
 	
-	
-	
-	
-	
-	
+
 	
 }

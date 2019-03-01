@@ -184,6 +184,40 @@ your result
 
 
 
+/*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The selectSpecific() is to select specific a
+record(s) on the table depending on the 
+arguments you pass to it.Pass it the table 
+name and a callback function to retrieve back
+your result
+
+*/
+	static select_two_searchkeys_and_bounds(tableName,ColumnNameOne,ValueOne,ValueTwo,ColumnTwo,ColumnThree) {
+
+     return new Promise(function(resolve, reject) {
+        var sql = 'SELECT * FROM '+tableName+' WHERE '+ColumnNameOne+' = '+ mysql.escape(ValueOne)+' AND '+ValueTwo+' BETWEEN '+ColumnTwo+' AND '+ColumnThree;
+        con.query(sql, function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        var returned_value_=result;
+                        resolve(returned_value_);
+                    }
+
+        });
+		 
+	})
+
+
+    }	
+
+
+
+
+
+
+
+
 	
 	
 	
@@ -295,7 +329,40 @@ individual_update() updates a specific record(s).
 	
 	
 	
+
+/*SON/2018-11-06 00:29 - DEVELOPMENT
 	
+individual_update() updates a specific record(s).
+
+*/	
+	static three_updates_with_two_AND_searchkeys(TableName,ColumnOneToBeSet,ValueOneToBeSet,ColumnTwoToBeSet,ValueTwoToBeSet,ColumnThreeToBeSet,ValueThreeToBeSet,ColumnOne,ValueOne,ColumnTwo,ValueTwo) {
+		
+      return new Promise(function(resolve, reject) {
+    	
+		
+			
+			con.query('UPDATE ' + TableName + ' SET '+ColumnOneToBeSet+'='+ mysql.escape(ValueOneToBeSet)+','+ColumnTwoToBeSet+'='+ mysql.escape(ValueTwoToBeSet)+','+ColumnThreeToBeSet+'='+ mysql.escape(ValueThreeToBeSet)+' WHERE '+ColumnOne+' = '+ mysql.escape(ValueOne)+' AND '+ColumnTwo+' = '+ mysql.escape(ValueTwo), function (err, result) {
+            if (err){reject(err);}
+            
+			var returned_value_={success:true, message:"Record updated succesfully."};
+            resolve(returned_value_);
+            });
+
+			
+			
+			
+        }, function(err) {
+        console.log(err);
+        })
+		
+    
+        
+		
+    }	
+
+
+
+
 	
 	
 	

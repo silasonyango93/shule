@@ -389,6 +389,47 @@ router.post('/getAspecifRecordForAspecificStudentAndExam',urlencodedParser,funct
    
    
    
+   
+   
+   
+   
+   
+   
+router.post('/update_a_row_with_sumtotal_average_and_meangrade',urlencodedParser,function(request,response){
+	
+	
+	var ColumnOneToBeSet=request.body.ColumnOneToBeSet;
+	var ValueOneToBeSet=request.body.ValueOneToBeSet;
+	var ColumnTwoToBeSet=request.body.ColumnTwoToBeSet;
+	var ValueTwoToBeSet=request.body.ValueTwoToBeSet;
+	var ColumnThreeToBeSet=request.body.ColumnThreeToBeSet;
+	var ValueThreeToBeSet=request.body.ValueThreeToBeSet;
+	var ColumnOne=request.body.ColumnOne;
+	var ValueOne=request.body.ValueOne;
+	var ColumnTwo=request.body.ColumnTwo;
+	var ValueTwo=request.body.ValueTwo;
+	
+	
+	
+    
+    var myPromise = PrimaryResultsTableController.update_a_row_with_sumtotal_average_and_meangrade(ColumnOneToBeSet,ValueOneToBeSet,ColumnTwoToBeSet,ValueTwoToBeSet,ColumnThreeToBeSet,ValueThreeToBeSet,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });         
+   
+   
+   
+   
+   
 
 
 
