@@ -204,4 +204,29 @@ module.exports = class PrimaryResultsTableModel{
 	
 	
 	
+	
+	
+  static getAspecifRecordForAspecificStudentAndExam(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.selectSpecific_with_two_AND_searchkeys(TableName,ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }			
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

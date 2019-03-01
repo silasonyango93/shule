@@ -352,6 +352,43 @@ router.post('/update_a_field_with_its_grade',urlencodedParser,function(request,r
    
    
    
+   
+   
+   
+   
+   
+   
+router.post('/getAspecifRecordForAspecificStudentAndExam',urlencodedParser,function(request,response){
+	
+	
+	var ColumnNameOne=request.body.ColumnNameOne;
+	
+	var ValueOne=request.body.ValueOne;
+	
+	var ColumnNameTwo=request.body.ColumnNameTwo;
+	
+	var ValueTwo=request.body.ValueTwo;
+	
+	
+    
+    var myPromise = PrimaryResultsTableController.getAspecifRecordForAspecificStudentAndExam(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });      
+   
+   
+   
+   
+   
 
 
 

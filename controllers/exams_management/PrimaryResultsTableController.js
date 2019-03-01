@@ -203,4 +203,31 @@ module.exports = class PrimaryResultsTableController{
 	
 	
 	
+	
+	
+	static getAspecifRecordForAspecificStudentAndExam(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = PrimaryResultsTableModel.getAspecifRecordForAspecificStudentAndExam(ColumnNameOne,ValueOne,ColumnNameTwo,ValueTwo);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }	
+		
+	
+	
+	
+	
+	
+	
+	
+	
 }
