@@ -196,7 +196,7 @@ your result
 	static select_two_searchkeys_and_bounds(tableName,ColumnNameOne,ValueOne,ValueTwo,ColumnTwo,ColumnThree) {
 
      return new Promise(function(resolve, reject) {
-        var sql = 'SELECT * FROM '+tableName+' WHERE '+ColumnNameOne+' = '+ mysql.escape(ValueOne)+' AND '+ValueTwo+' BETWEEN '+ColumnTwo+' AND '+ColumnThree;
+        var sql = 'SELECT * FROM '+tableName+' WHERE '+tableName+'.'+ColumnNameOne+'='+mysql.escape(ValueOne)+' AND '+mysql.escape(ValueTwo)+' BETWEEN '+tableName+'.'+ColumnTwo+' AND '+tableName+'.'+ColumnThree+';';
         con.query(sql, function (err, result) {
             if (err){reject(err);}
                    else {
@@ -580,6 +580,42 @@ of the other two,and there is a WHERE clause
 	})
 
    }
+   
+   
+   
+   
+   
+   
+   
+   /*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+The three_table_one_parent_with_searchkey_inner_join() is used to conduct
+an inner join query between three tables where one table(TableOne) is the parent 
+of the other two,and there is a WHERE clause
+
+*/	
+	static three_table_linear_inner_join(TableOne,TableTwo,TableThree,JoiningKeyOne,JoiningKeyTwo,SearchColumn,SearchValue) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM `academic_class_levels` INNER JOIN `classes` ON `academic_class_levels`.`AcademicClassLevelId`=`classes`.`AcademicClassLevelId` INNER JOIN `students` ON `classes`.`ClassId`=`students`.`ClassId` WHERE `students`.`ClassId`=5;',function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }   
+   
+   
+   
+   
+   
+   
+   
+   
 	
 	
 	

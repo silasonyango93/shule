@@ -298,7 +298,7 @@ router.post('/select_mean_grade_for_particular_mean_for_particular_class_level',
         
            var response_object={results:result}
            response.send(response_object);
-		   console.log(response_object);
+		   
            }, function(err) {
            response.send("An error occurred");
 			   console.log(err);

@@ -175,7 +175,31 @@ module.exports = class StudentsModel{
            reject(err);
            })
      })
-    }		
+    }
+	
+	
+	
+	
+	
+
+
+
+  static get_students_class_levels_from_classId(TableOne,TableTwo,JoiningKeyOne,JoiningKeyTwo,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.three_table_linear_inner_join(TableOne,TableTwo,TableName,JoiningKeyOne,JoiningKeyTwo,SearchColumn,SearchValue);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }
+	
+	
 	
 	
 	

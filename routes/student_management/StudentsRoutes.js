@@ -305,6 +305,48 @@ router.post('/students_user_specific_query',urlencodedParser,function(request,re
 
 
 
+
+
+
+
+
+
+router.post('/get_students_class_levels_from_classId',urlencodedParser,function(request,response){
+	
+    var TableOne=request.body.TableOne;
+    var TableTwo=request.body.TableTwo;
+	var JoiningKeyOne=request.body.JoiningKeyOne;
+	var JoiningKeyTwo=request.body.JoiningKeyTwo;
+	var SearchColumn=request.body.SearchColumn;
+	var SearchValue=request.body.SearchValue;
+	
+	
+	
+    
+    var myPromise = StudentsController.get_students_class_levels_from_classId(TableOne,TableTwo,JoiningKeyOne,JoiningKeyTwo,SearchColumn,SearchValue);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+		
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });
+
+
+
+
+
+
+
+
+
+
  
  
 module.exports = router;

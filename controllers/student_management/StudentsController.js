@@ -179,4 +179,33 @@ module.exports = class StudentsController{
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	static get_students_class_levels_from_classId(TableOne,TableTwo,JoiningKeyOne,JoiningKeyTwo,SearchColumn,SearchValue){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = StudentsModel.get_students_class_levels_from_classId(TableOne,TableTwo,JoiningKeyOne,JoiningKeyTwo,SearchColumn,SearchValue);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+	
+	
+	
+	
+	
+	
+	
 }
