@@ -321,7 +321,7 @@ router.post('/update_student_specific_exam_papers_marks',urlencodedParser,functi
 	
     var	JsonObject = {
         
-			Marks:request.body.Marks,
+			Marks:request.body.Marks
 				
         };
     

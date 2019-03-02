@@ -295,6 +295,47 @@ individual_update() updates a specific record(s).
 	
 	
 	
+	
+/*SON/2018-11-06 00:29 - DEVELOPMENT
+	
+individual_update() updates a specific record(s).
+
+*/	
+	static update_with_two_AND_searchkeys(TableName,JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo) {
+		
+      return new Promise(function(resolve, reject) {
+    	
+		
+			
+			con.query('UPDATE ' + TableName + ' SET ? WHERE '+ColumnOne+' = '+ mysql.escape(ValueOne)+' AND '+ColumnTwo+' = '+ mysql.escape(ValueTwo),JsonObject, function (err, result) {
+            if (err){reject(err);}
+            
+			var returned_value_={success:true, message:"Record updated succesfully."};
+            resolve(returned_value_);
+            });
+
+			
+			
+			
+        }, function(err) {
+        console.log(err);
+        })
+		
+    
+        
+		
+    }		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 /*SON/2018-11-06 00:29 - DEVELOPMENT
 	
 individual_update() updates a specific record(s).

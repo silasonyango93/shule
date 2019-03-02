@@ -206,7 +206,7 @@ module.exports = class SpecificStudentExamPapersModel{
         
 
         
-		var myPromise = ModelMaster.individual_update_with_two_AND_searchkeys(TableName,JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
+		var myPromise = ModelMaster.update_with_two_AND_searchkeys(TableName,JsonObject,ColumnOne,ValueOne,ColumnTwo,ValueTwo);
 		   myPromise.then(function(result) {
         
            resolve(result);
