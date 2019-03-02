@@ -227,6 +227,31 @@ module.exports = class ExamPapersController{
 	
 	
 	
+	
+	static get_exam_papers_assignable_to_particular_student(TableOne,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = ExamPapersModel.get_exam_papers_assignable_to_particular_student(TableOne,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
 	

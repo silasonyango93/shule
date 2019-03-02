@@ -321,7 +321,8 @@ router.post('/update_student_specific_exam_papers_marks',urlencodedParser,functi
 	
     var	JsonObject = {
         
-			Marks:request.body.Marks
+			Marks:request.body.Marks,
+			IsMarkSubmited:request.body.IsMarkSubmited
 				
         };
     
@@ -380,7 +381,33 @@ router.post('/get_a_specific_student_specific_subject_results',urlencodedParser,
 			   console.log(err);
            })
 
-   });         
+   });  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+router.post('/get_any_unsubmitted_marks',urlencodedParser,function(request,response){
+	var ExamId=request.body.ExamId;
+    var myPromise = SpecificStudentExamPapersController.get_any_unsubmitted_marks(ExamId);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+		   
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });     
    
    
    

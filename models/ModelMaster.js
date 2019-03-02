@@ -933,7 +933,79 @@ and two grandchildren(Tables five and six) from one child(TableFour)
    }
 	
 	
+
+
+
+
+
+   /*SON/2018-11-06 00:29 - DEVELOPMENT
 	
+The one_grandparent_one_parent_two_children_two_grandchildren_from_one_child() is used to conduct
+an inner join query between six  tables, one grandParent(TableOne), one parent(TableTwo),two children(table Three and four)
+and two grandchildren(Tables five and six) from one child(TableFour)
+
+*/	
+	static get_any_unsubmitted_marks(ExamId) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM staff_members INNER JOIN teachers_class_specific_subjects ON staff_members.StaffNo=teachers_class_specific_subjects.StaffNo INNER JOIN class_specific_subjects ON teachers_class_specific_subjects.ClassSpecificSubjectId=class_specific_subjects.ClassSpecificSubjectId INNER JOIN subjects ON class_specific_subjects.SubjectId=subjects.SubjectId INNER JOIN classes ON classes.ClassId=class_specific_subjects.ClassId INNER JOIN academic_class_levels ON classes.AcademicClassLevelId=academic_class_levels.AcademicClassLevelId INNER JOIN class_streams ON classes.ClassStreamId=class_streams.ClassStreamId INNER JOIN exam_papers ON class_specific_subjects.ClassSpecificSubjectId=exam_papers.ClassSpecificSubjectId INNER JOIN exams ON exam_papers.ExamId=exams.ExamId INNER JOIN specific_student_exam_papers ON exam_papers.ExamPaperId=specific_student_exam_papers.ExamPaperId INNER JOIN students ON specific_student_exam_papers.AdmissionNo=students.AdmissionNo WHERE specific_student_exam_papers.IsMarkSubmited=0 AND exams.ExamId='+ mysql.escape(ExamId),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }
+
+
+
+
+
+
+	static get_a_specific_students_class_by_full_reference(AdmissionNo) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT * FROM `academic_class_levels` INNER JOIN classes ON academic_class_levels.AcademicClassLevelId=classes.AcademicClassLevelId INNER JOIN class_streams ON classes.ClassStreamId=class_streams.ClassStreamId INNER JOIN students ON students.ClassId=classes.ClassId WHERE students.AdmissionNo='+ mysql.escape(AdmissionNo),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }	
+   
+   
+   
+   
+   
+   
+   
+   
+	static get_a_students_Fields(AdmissionNo) {
+	return new Promise(function(resolve, reject) {	
+
+        con.query('SELECT DISTINCT fields_.fieldId FROM fields_ INNER JOIN subjects ON fields_.fieldId=subjects.FieldId INNER JOIN class_specific_subjects ON subjects.SubjectId=class_specific_subjects.SubjectId INNER JOIN student_class_specific_subject_rship ON class_specific_subjects.ClassSpecificSubjectId=student_class_specific_subject_rship.ClassSpecificSubjectId WHERE student_class_specific_subject_rship.AdmissionNo='+ mysql.escape(AdmissionNo),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }	
+
+
+
+
+
 
 	
 

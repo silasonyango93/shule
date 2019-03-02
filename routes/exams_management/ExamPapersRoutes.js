@@ -376,6 +376,42 @@ router.post('/get_a_classSpecicSubject_exam_paper_for_a_specific_exam',urlencode
    
    
    
+   
+   
+   
+   
+router.post('/get_exam_papers_assignable_to_particular_student',urlencodedParser,function(request,response){
+	
+    var TableOne=request.body.TableOne;
+    var JoiningKey=request.body.JoiningKey;
+	var SearchColumnOne=request.body.SearchColumnOne;
+	var SearchValueOne=request.body.SearchValueOne;
+	var SearchColumnTwo=request.body.SearchColumnTwo;
+	var SearchValueTwo=request.body.SearchValueTwo;
+	
+	
+    
+    var myPromise = ExamPapersController.get_exam_papers_assignable_to_particular_student(TableOne,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });    
+   
+   
+   
+   
+   
+   
+   
+   
 
  
 module.exports = router;

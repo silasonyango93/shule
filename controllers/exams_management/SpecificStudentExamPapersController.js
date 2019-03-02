@@ -246,7 +246,34 @@ module.exports = class SpecificStudentExamPapersController{
            })
 		   
 	 })
+    }	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	static get_any_unsubmitted_marks(ExamId){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = SpecificStudentExamPapersModel.get_any_unsubmitted_marks(ExamId);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
     }		
+	
 	
 	
 	

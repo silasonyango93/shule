@@ -175,6 +175,27 @@ module.exports = class FieldsModel{
            reject(err);
            })
      })
+    }	
+	
+	
+	
+	
+	
+	
+	
+  static get_a_students_Fields(AdmissionNo){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.get_a_students_Fields(AdmissionNo);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
     }		
 	
 	

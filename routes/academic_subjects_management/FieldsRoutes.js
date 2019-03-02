@@ -283,6 +283,36 @@ router.post('/fields__user_specific_query',urlencodedParser,function(request,res
            })
 
    });
+   
+   
+   
+   
+   
+   
+   
+   
+router.post('/get_a_students_Fields',urlencodedParser,function(request,response){
+	
+    var AdmissionNo=request.body.AdmissionNo;
+    
+	
+	
+    
+    var myPromise = FieldsController.get_a_students_Fields(AdmissionNo);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });   
+   
+   
 
 
 

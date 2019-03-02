@@ -179,4 +179,28 @@ module.exports = class FieldsController{
 	
 	
 	
+	
+	
+	static get_a_students_Fields(AdmissionNo){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = FieldsModel.get_a_students_Fields(AdmissionNo);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
+    }		
+	
+	
+	
+	
+	
+	
 }

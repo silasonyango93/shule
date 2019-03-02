@@ -217,8 +217,31 @@ module.exports = class ExamPapersModel{
            reject(err);
            })
      })
-    }		
+    }	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  static get_exam_papers_assignable_to_particular_student(TableOne,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.two_table_inner_join_searchKeys_on_each_table(TableOne,TableName,JoiningKey,SearchColumnOne,SearchValueOne,SearchColumnTwo,SearchValueTwo);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }		
 	
 	
 	

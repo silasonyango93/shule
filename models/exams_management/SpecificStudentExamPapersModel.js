@@ -247,6 +247,26 @@ module.exports = class SpecificStudentExamPapersModel{
 	
 	
 	
+  static get_any_unsubmitted_marks(ExamId){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.get_any_unsubmitted_marks(ExamId);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }	
+		
+	
+	
+	
+	
+	
 	
 	
 }

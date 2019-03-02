@@ -197,7 +197,27 @@ module.exports = class ClassesModel{
 	
 	
 	
-	
+
+
+
+
+
+  static get_a_specific_students_class_by_full_reference(AdmissionNo){
+	   return new Promise(function(resolve, reject) {
+        
+
+        
+		var myPromise = ModelMaster.get_a_specific_students_class_by_full_reference(AdmissionNo);
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+     })
+    }
+
+
 	
 	
 	

@@ -334,6 +334,37 @@ router.post('/get_all_class_by_full_reference',urlencodedParser,function(request
            })
 
    });
+   
+   
+   
+   
+   
+   
+   
+router.post('/get_a_specific_students_class_by_full_reference',urlencodedParser,function(request,response){
+	
+    var AdmissionNo=request.body.AdmissionNo;
+   
+    
+    var myPromise = ClassesController.get_a_specific_students_class_by_full_reference(AdmissionNo);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });   
+   
+   
+   
+   
+   
+   
 
 
 
