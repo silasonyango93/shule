@@ -378,6 +378,7 @@ router.post('/getAspecifRecordForAspecificStudentAndExam',urlencodedParser,funct
         
            var response_object={results:result}
            response.send(response_object);
+		   
            }, function(err) {
            response.send("An error occurred");
 			   console.log(err);
