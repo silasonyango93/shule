@@ -268,9 +268,29 @@ module.exports = class PrimaryResultsTableController{
            })
 		   
 	 })
+    }	
+	
+	
+	
+	
+	
+	
+	static get_results_for_a_particular_class_level(AcademicClassLevelId,ExamId){
+	   return new Promise(function(resolve, reject) { 
+        
+        
+		var myPromise = PrimaryResultsTableModel.get_results_for_a_particular_class_level(AcademicClassLevelId,ExamId);
+		    
+		   
+		   myPromise.then(function(result) {
+        
+           resolve(result);
+           }, function(err) {
+           reject(err);
+           })
+		   
+	 })
     }		
-	
-	
 	
 	
 	

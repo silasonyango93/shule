@@ -470,6 +470,31 @@ router.post('/get_final_results_for_particular_exam_and_class',urlencodedParser,
 
 
 
+
+
+router.post('/get_results_for_a_particular_class_level',urlencodedParser,function(request,response){
+	
+	
+	var AcademicClassLevelId=request.body.AcademicClassLevelId;
+	var ExamId=request.body.ExamId;
+	
+    
+    var myPromise = PrimaryResultsTableController.get_results_for_a_particular_class_level(AcademicClassLevelId,ExamId);
+	      	        
+		   
+		   myPromise.then(function(result) {
+        
+           var response_object={results:result}
+           response.send(response_object);
+           }, function(err) {
+           response.send("An error occurred");
+			   console.log(err);
+           })
+
+   });   
+
+
+
    
 
 

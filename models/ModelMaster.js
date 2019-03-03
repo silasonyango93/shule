@@ -1000,9 +1000,29 @@ and two grandchildren(Tables five and six) from one child(TableFour)
 		
 	})
 
-   }	
+   }
+   
+   
+   
+   
+   
+   
+   
 
+	static get_results_for_a_particular_class_level(AcademicClassLevelId,ExamId) {
+	return new Promise(function(resolve, reject) {	
 
+        con.query('SELECT * FROM academic_class_levels INNER JOIN classes ON academic_class_levels.AcademicClassLevelId=classes.AcademicClassLevelId INNER JOIN students ON students.ClassId=classes.ClassId INNER JOIN primary_results_table ON students.AdmissionNo=primary_results_table.AdmissionNo WHERE academic_class_levels.AcademicClassLevelId='+ mysql.escape(AcademicClassLevelId)+' AND primary_results_table.ExamId='+ mysql.escape(ExamId),function (err, result) {
+            if (err){reject(err);}
+                   else {
+				        
+                        resolve(result);
+                    }
+        });
+		
+	})
+
+   }
 
 
 
